@@ -15,9 +15,14 @@ class CollatzInfo
 	// Create an integer variable to store an integer's Collatz sequence
 	// length
 	int collatzLength;
-}
+};
 
 int main()
 {
-	
+	storeCollatzInfo();
+}
+
+void storeCollatzInfo()
+{
+	;
 }
