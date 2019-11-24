@@ -2,9 +2,11 @@
  * Course: CSC 330 Organization of Programming Languages
  * School Year: 2019-2020 School Year */
 
+#include <map>
+
 using namespace std;
 
-void storeCollatzInfo();
+void storeCollatzInfo(long int maxCollatzLength);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -21,25 +23,40 @@ class CollatzInfo
 
 int main()
 {
+	multimap<long int, int> collatzLengthMap;
 
-	const int maxCollatzLength = 5000000000;
-	storeCollatzInfo(maxCollatzLength);
+	const long int maxCollatzLength = 5000000000;
+	storeCollatzInfo(collatzLengthMap,
+			 maxCollatzLength);
 }
 
-void storeCollatzInfo(int maxCollatzLength)
+void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
+		      long int maxCollatzLength)
 {
 	// Precondition:
 	// Postcondition:
 
+	// Create lowes
+	int lowestCollatzLength = -1;
+	int highestCollatzLength = INT_MAX;
 	
-
 	for (int integer = 1; integer <= INT_MAX; integer++)
 	{
-		calculateCollatzLength(integer, maxCollatzLength);
+		long int collatzLength = calculateCollatzLength(integer,
+								maxCollatzLength);
+
+		// 
+		if (collatzLength != -1)
+		{
+			if (collatzLength > 
+			collatzLengthMap.insert(pair<int, long int>(integer,
+								    collatzLength));
+		}
 	}
 }
 
-int calculateCollatzLength(int integer, int maxCollatzLength)
+int calculateCollatzLength(int integer,
+			   long int maxCollatzLength)
 {
 	// Precondition: Both the received integer to be evaluated and the
 	// received maximum Collatz sequence length were valid positive integers
@@ -49,7 +66,7 @@ int calculateCollatzLength(int integer, int maxCollatzLength)
 	// returned to this function's caller if the calculated Collatz length
 	// exceeded the maximum Collatz length parameter
 
-	int collatzLength = 0;
+	long int collatzLength = 0;
 
 	while ((integer != 1) &&
 	       (collatzLength < maxCollatzLength))
