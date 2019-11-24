@@ -41,7 +41,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 	int lowestCollatzLength = -1;
 	int highestCollatzLength = INT_MAX;
 	
-	multimap <int, long int> :: iterator collatzMapIterator;
+	multimap <long int, long int> :: iterator collatzMapIterator;
 
 	for (int integer = 1; integer <= INT_MAX; integer++)
 	{
@@ -53,16 +53,21 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		// sequence lengths
 		if (collatzLength > 0)
 		{
-			// Check the number of elements in the Collatz Length multimap and the to keep the longest ten Collatz length and integer pairs
+			// Check the number of elements in the Collatz Length
+			// multimap and the to keep the longest ten Collatz
+			// length and integer pairs
 			if (collatzLengthMap.size < 10)
 			{
 				collatzLengthMap.insert(pair<int, long int>(integer,
 									    collatzLength));
 			}
-			else if (collatzLength > collatzLengthMap)
+
+			else if (collatzLength > collatzMapIterator -> first)
 			{
 				collatzLengthMap.insert(pair<int, long int>(integer,
 									    collatzLength));
+
+				eraseFirstMultimapItem(collatzLengthMap);
 			}
 		}
 	}
@@ -99,4 +104,10 @@ int calculateCollatzLength(int integer,
 	}
 
 	return collatzLength;
+}
+
+eraseFirstMultimapItem()
+{
+	// Precondition: The received multimap holds at least one item
+	// Postcondition: The multimap's first item was erased
 }
