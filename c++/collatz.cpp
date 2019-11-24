@@ -23,6 +23,7 @@ class CollatzInfo
 
 int main()
 {
+	// A multimap is used to automatically sort the Collatz sequence lengths in ascending order
 	multimap<long int, int> collatzLengthMap;
 
 	const long int maxCollatzLength = 5000000000;
@@ -40,17 +41,29 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 	int lowestCollatzLength = -1;
 	int highestCollatzLength = INT_MAX;
 	
+	multimap <int, long int> :: iterator collatzMapIterator;
+
 	for (int integer = 1; integer <= INT_MAX; integer++)
 	{
 		long int collatzLength = calculateCollatzLength(integer,
 								maxCollatzLength);
 
-		// 
-		if (collatzLength != -1)
+		// Check if the current integer's Collatz sequence length is
+		// greater than zero to prevent storage of invalid Collatz
+		// sequence lengths
+		if (collatzLength > 0)
 		{
-			if (collatzLength > 
-			collatzLengthMap.insert(pair<int, long int>(integer,
-								    collatzLength));
+			// Check the number of elements in the Collatz Length multimap and the to keep the longest ten Collatz length and integer pairs
+			if (collatzLengthMap.size < 10)
+			{
+				collatzLengthMap.insert(pair<int, long int>(integer,
+									    collatzLength));
+			}
+			else if (collatzLength > collatzLengthMap)
+			{
+				collatzLengthMap.insert(pair<int, long int>(integer,
+									    collatzLength));
+			}
 		}
 	}
 }
