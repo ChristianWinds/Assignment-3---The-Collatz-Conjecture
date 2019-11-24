@@ -4,6 +4,8 @@
 
 using namespace std;
 
+void storeCollatzInfo();
+
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
 class CollatzInfo
