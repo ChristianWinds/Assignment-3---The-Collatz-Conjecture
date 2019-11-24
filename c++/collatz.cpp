@@ -26,5 +26,8 @@ int main()
 
 void storeCollatzInfo()
 {
+	// Precondition:
+	// Postcondition:
+
 	;
 }
