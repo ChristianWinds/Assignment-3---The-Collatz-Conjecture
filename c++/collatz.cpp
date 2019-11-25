@@ -217,7 +217,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	// integer columns
 	printTwoColumnHeader(leftColumnName,
 			     rightColumnName,
-			     separator,
+			     headerSeparator,
 			     leftColumnWidth);
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
