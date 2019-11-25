@@ -18,7 +18,7 @@ int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
-				    long int maxCollatzLength)
+				    long int maxCollatzLength);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 				   int leftColumnWidth);
