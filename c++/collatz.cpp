@@ -51,11 +51,13 @@ int main()
 
 void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		      int collatzLengthsToStore,
-		      long int maxCollatzLength)
+		      long int maxCollatzLength,
+		      int maxIntToEvaluate)
 {
 	// Precondition: The Collatz sequence length multimap is empty, and this
-	// function's received quantity of Collatz sequence lengths to store and
-	// maximum Collatz sequence length are valid positive integers
+	// function's received quantity of Collatz sequence lengths to store,
+	// the maximum Collatz sequence length, and the maximum integer to
+	// evaluate are valid positive integers
 	// Postcondition: The Collatz sequence length multimap holds the
 	// specified number of longest Collatz sequence lengths to store and
 	// the lengths' respective integers
@@ -67,9 +69,11 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 	// Evaluate integers from one to the maximum primitive integer value to
 	// determine the longest Collatz sequence lengths possible for the
 	// integers
-	for (int integer = 1; integer <= INT_MAX; integer++)
+	for (int intToEvaluate = 1;
+	     intToEvaluate <= maxIntToEvaluate;
+	     intToEvaluate++)
 	{
-		long int collatzLength = calculateCollatzLength(integer,
+		long int collatzLength = calculateCollatzLength(intToEvaluate,
 								maxCollatzLength);
 
 		// Check if the current integer's Collatz sequence length is
@@ -82,7 +86,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 			// longest Collatz sequence length and integer pairs
 			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
-				collatzLengthMap.insert(pair<long int, int>(integer,
+				collatzLengthMap.insert(pair<long int, int>(intToEvaluate,
 									    collatzLength));
 			}
 			else if (collatzLength > collatzMapIterator -> first)
@@ -91,7 +95,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 				// integer pair to update the longest Collatz
 				// sequence lengths within the specified number
 				// of stored Collatz sequence lengths
-				collatzLengthMap.insert(pair<long int, int>(integer,
+				collatzLengthMap.insert(pair<long int, int>(intToEvaluate,
 									    collatzLength));
 
 				// Erase the lowest Collatz sequence length from
@@ -101,6 +105,11 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 				eraseFirstMultimapItem(collatzLengthMap);
 			}
 		}
+
+		// End the Collatz sequence length calculations if the maximum
+		// specified integer of the integer calculation range was met
+		// to avoid an error
+		if (integer
 	}
 }
 
