@@ -17,7 +17,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
-void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
+void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
+				    long int maxCollatzLength)
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 				   int leftColumnWidth);
@@ -76,7 +77,8 @@ int main()
 	// information printouts
 	cout << endl;
 
-	printByCollatzSequenceIntegers(collatzLengthMap);
+	printByCollatzSequenceIntegers(collatzLengthMap,
+				       maxCollatzLength);
 
 	return 0;
 }
@@ -224,7 +226,8 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 				      leftColumnWidth);
 }
 
-void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
+void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
+				    long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair
