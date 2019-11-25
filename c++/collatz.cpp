@@ -219,9 +219,11 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
 	int leftColumnNameSize = leftColumnName.size();
 	int maxCollatzLengthStringSize = intToString(maxCollatzLength).size();
 
-	// Calculate the left output column's width to separate the printed
-	// Collatz sequence length and integer values
-	int leftColumnWidth = leftColumnName.length() + headerSeparator.length();
+	// Set the left printed column width to include both the left column
+	// name and the left column's longest possible integer string size in
+	// the left column
+	int leftColumnWidth = max(leftColumnNameSize,
+				  maxCollatzLengthStringSize);
 
 	// Print a header to label the Collatz sequence length and evaluated
 	// integer columns
