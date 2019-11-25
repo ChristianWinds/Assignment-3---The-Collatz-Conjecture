@@ -261,7 +261,6 @@ void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 }
 
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
-				   string separator,
 				   int leftColumnWidth)
 {
 	// Precondition: The multimap this function receives holds at least one
