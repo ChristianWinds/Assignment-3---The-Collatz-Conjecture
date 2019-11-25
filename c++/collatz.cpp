@@ -26,7 +26,7 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 				   int leftColumnWidth);
 void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
 				      const int separatorLength,
-				      int leftColumnWidth)
+				      int leftColumnWidth);
 void sortByMappedValue(multimap<long int, int> originalMultimap,
 		       multimap<int, long int> &mappedValueSortedMap);
 void printTwoColumnHeader(const string leftColumnName,
