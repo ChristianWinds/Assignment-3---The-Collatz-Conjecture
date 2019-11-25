@@ -204,7 +204,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
 	// integer columns
 	cout << leftColumnName << " " << rightColumnName << endl;
 
-	int leftColumnWidth = leftColumnName.length() + 1, 
+	int leftColumnWidth = leftColumnName.length() + 1;
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
 				      leftColumnWidth);
