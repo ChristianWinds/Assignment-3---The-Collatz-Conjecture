@@ -19,7 +19,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
-void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap)
+void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
 multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultimap,
 					  multimap<int, long int> mappedValueSortedMap);
 
