@@ -259,9 +259,11 @@ void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap)
 	// are printed onto the screen in ascending sorted order by mapped value
 
 	// Create a mapped value-sorted duplicate multimap by re-sorting this
-	// function's received multimap parameter's contents in mapped value order
+	// function's received multimap parameter's contents in mapped value
+	// order
 	multimap<int, long int> mappedValueSortedMap;
-	sortByMappedValue(multimapParameter, mappedValueSortedMap);
+	sortByMappedValue(originalMultimap,
+			  mappedValueSortedMap);
 
 	// Code from cplusplus.com,
 	// http://www.cplusplus.com/reference/map/multimap/erase/
