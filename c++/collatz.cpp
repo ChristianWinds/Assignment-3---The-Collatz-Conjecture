@@ -80,7 +80,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 			// Check the number of elements in the Collatz Length
 			// multimap and the to keep the specified number of 
 			// longest Collatz sequence length and integer pairs
-			if (collatzLengthMap.size < collatzLengthsToStore)
+			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
 				collatzLengthMap.insert(pair<long int, int>(integer,
 									    collatzLength));
