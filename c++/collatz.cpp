@@ -24,6 +24,10 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
 void sortByMappedValue(multimap<long int, int> originalMultimap,
 		       multimap<int, long int> &mappedValueSortedMap);
+void printTwoColumnHeader(const string leftColumnName,
+			  const string rightColumnName,
+			  const string separator,
+			  int leftColumnWidth);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -201,13 +205,16 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	const string rightColumnName = "Integer";
 	const string separator = " | ";
 
-	// Print a header to label the Collatz sequence length and evaluated
-	// integer columns
-	cout << leftColumnName << separator << rightColumnName << endl;
-
 	// Calculate the left output column's width to separate the printed
 	// Collatz sequence length and integer values
 	int leftColumnWidth = leftColumnName.length() + separator.length();
+
+	// Print a header to label the Collatz sequence length and evaluated
+	// integer columns
+	printTwoColumnHeader(leftColumnName,
+			     rightColumnName,
+			     separator,
+			     leftColumnWidth);
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
 				      leftColumnWidth);
@@ -230,10 +237,14 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
-	cout << left << setw(leftColumnWidth) << leftColumnName << separator << rightColumnName << endl;
+	printTwoColumnHeader(leftColumnName,
+			     rightColumnName,
+			     separator,
+			     leftColumnWidth);
 
 	printMultimapSortedByMappedValue(collatzLengthMap);
 }
+
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
@@ -337,4 +348,24 @@ void sortByMappedValue(multimap<long int, int> originalMultimap,
 		// value-sorted map
 		mappedValueSortedMap.insert(pair<int, long int> ((*originalMapIterator).second, (*originalMapIterator).first));
 	}
+}
+
+void printTwoColumnHeader(const string leftColumnName,
+			  const string rightColumnName,
+			  const string separator,
+			  int leftColumnWidth)
+{
+	// Precondition: This function's received left column name, right column
+	// name, and separator strings are valid strings, the column name
+	// strings are non-empty strings, and this function's received left
+	// column width is a valid non-negative integer
+	// Postcondition: A header line in order of this function's received
+	// left column name, separator, and right column name is printed to the
+	// screen with the specified left column width 
+
+	// Code from C++ Patterns, 
+	// https://cpppatterns.com/patterns/write-data-in-columns.html
+	// Accessed Monday, November 25th, 2019
+	cout << left << setw(leftColumnWidth) << leftColumnName << separator
+	     << rightColumnName << endl;
 }
