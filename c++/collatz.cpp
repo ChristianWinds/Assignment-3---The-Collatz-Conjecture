@@ -186,6 +186,21 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter)
 {
 	// Precondition: The multimap this function receives holds at least one
 	// valid item
-	// Postondition: The items of the multimap are printed in ascending
-	// sorted order by key value
+	// Postondition: The items of the multimap are printed onto the screen
+	// in ascending sorted order by key value
+
+	// Code from cplusplus.com,
+	// http://www.cplusplus.com/reference/map/multimap/erase/
+	// Accessed Monday, November 25th, 2019
+	// Create an iterator to parse the multimap's contents for printing
+	multimap<long int, int> :: iterator printIterator;
+
+	// Use a for loop to access and print each of the multimap's items
+	for (printIterator = multimapParameter.begin();
+	     printIterator != multimapParameter.end();
+	     printIterator++)
+	{
+		cout << (*printIterator).first << "\t" <<
+			(*printIterator).second << endl;
+	}
 }
