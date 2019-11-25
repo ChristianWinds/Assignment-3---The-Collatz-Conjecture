@@ -256,8 +256,12 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	     printIterator != multimapParameter.end();
 	     printIterator++)
 	{
-		cout << (*printIterator).first << setw(leftColumnWidth)
-		     << (*printIterator).second << endl;
+		// Code from C++ Patterns, 
+		// https://cpppatterns.com/patterns/write-data-in-columns.html
+		// Accessed Monday, November 25th, 2019
+		cout << left << setw(leftColumnWidth)
+		     << (*printIterator).first << (*printIterator).second
+		     << endl;
 	}
 }
 
