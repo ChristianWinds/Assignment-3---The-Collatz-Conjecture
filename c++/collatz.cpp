@@ -366,6 +366,9 @@ void printTwoColumnHeader(const string leftColumnName,
 	// Code from C++ Patterns, 
 	// https://cpppatterns.com/patterns/write-data-in-columns.html
 	// Accessed Monday, November 25th, 2019
-	cout << left << setw(leftColumnWidth) << (leftColumnName + separator)
-	     << rightColumnName << endl;
+	// Combine the left column name and separator into one column to
+	// properly space the printed header
+	cout << left << setw(leftColumnWidth) << (leftColumnName + separator);
+
+	cout << rightColumnName << endl;
 }
