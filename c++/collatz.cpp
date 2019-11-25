@@ -9,7 +9,8 @@ using namespace std;
 
 void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		      int collatzLengthsToStore,
-		      long int maxCollatzLength);
+		      long int maxCollatzLength,
+		      int maxIntToEvaluate);
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
 void eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
@@ -39,12 +40,17 @@ int main()
 
 	const long int maxCollatzLength = 5000000000;
 
+	// Create an integer constant to designate the maximum integer to receive
+	// a Collatz sequence length calculation
+	const int maxIntToEvaluate = INT_MAX;
+
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
 	// within the specified quantity of Collatz sequence lengths to store
 	storeCollatzInfo(collatzLengthMap,
 			 collatzLengthsToStore,
-			 maxCollatzLength);
+			 maxCollatzLength,
+			 maxIntToEvaluate);
 
 	return 0;
 }
@@ -109,7 +115,10 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		// End the Collatz sequence length calculations if the maximum
 		// specified integer of the integer calculation range was met
 		// to avoid an error
-		if (integer
+		if (intToEvaluate >= maxIntToEvaluate)
+		{
+			break;
+		}
 	}
 }
 
