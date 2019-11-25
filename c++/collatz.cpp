@@ -12,7 +12,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		      long int maxCollatzLength);
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
-eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
+void eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -151,7 +151,7 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
+void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
 	// Postcondition: The multimap's first item was erased
