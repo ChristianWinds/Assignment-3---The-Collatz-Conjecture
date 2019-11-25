@@ -31,7 +31,7 @@ void printTwoColumnHeader(const string leftColumnName,
 			  int leftColumnWidth);
 void printTwoColumnIntegers(const long int leftInt,
 			    const long int rightInt,
-			    int leftColumnWidth)
+			    int leftColumnWidth);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
