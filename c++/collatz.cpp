@@ -9,14 +9,14 @@
 
 using namespace std;
 
-void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
+void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
 		      int maxIntToEvaluate);
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
-void eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
+void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
@@ -61,7 +61,7 @@ int main()
 	return 0;
 }
 
-void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
+void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
 		      int maxIntToEvaluate)
@@ -192,7 +192,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	printMultimapSortedByKeyValue(collatzLengthMap);
 }
 
-void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
+void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
 	// Postcondition: The multimap's first item was erased
