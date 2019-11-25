@@ -187,8 +187,7 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
-			   const long int maxCollatzLength)
+void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair
