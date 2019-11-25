@@ -58,6 +58,12 @@ int main()
 
 	printByCollatzLengths(collatzLengthMap);
 
+	// Print a blank line to separate the two printed Collatz sequence
+	// information printouts
+	cout << endl;
+
+	printByCollatzSequenceIntegers(collatzLengthMap);
+
 	return 0;
 }
 
@@ -192,6 +198,16 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	printMultimapSortedByKeyValue(collatzLengthMap);
 }
 
+void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
+{
+	// Precondition: The Collatz sequence length multimap received by this
+	// function holds at least one Collatz sequence length and integer pair
+	// Postcondition: The Collatz sequence length and integer pairs in this
+	// function's received Collatz sequence length map are printed to the
+	// screen in ascending order sorted primarily by integer magnitude, then
+	// secondarily by Collatz sequence length
+	
+}
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
