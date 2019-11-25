@@ -31,6 +31,7 @@ void printTwoColumnHeader(const string leftColumnName,
 void printTwoColumnIntegers(const long int leftInt,
 			    const long int rightInt,
 			    int leftColumnWidth);
+string intToString(long int originalInt);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -400,7 +401,7 @@ void printTwoColumnIntegers(const long int leftInt,
 	cout << left << setw(leftColumnWidth) << leftInt << rightInt << endl;
 }
 
-string intToString(long int originalInteger)
+string intToString(long int originalInt)
 {
 	// Precondition: The integer this function received is a valid integer
 	// Postcondition: This function returns a string of this function's
@@ -416,7 +417,7 @@ string intToString(long int originalInteger)
 	// Place the original integer parameter's content into the output string
 	// stream to convert the integer parameter's content into string
 	// characters
-	convert << originalInteger;
+	convert << originalInt;
 
 	// Place the output string stream's content into a "string integer"
 	// variable to store the string stream's content as a string
