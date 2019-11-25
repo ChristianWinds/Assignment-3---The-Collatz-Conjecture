@@ -41,7 +41,9 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength)
 {
-	// Precondition:
+	// Precondition: The Collatz sequence length multimap is empty, and this
+	// function's received quantity of Collatz sequence lengths to store and
+	// maximum Collatz sequence length are valid positive integers
 	// Postcondition: The Collatz sequence length multimap holds the
 	// specified number of longest Collatz sequence lengths to store and
 	// the lengths' respective integers
@@ -95,14 +97,16 @@ int calculateCollatzLength(int integer,
 {
 	// Precondition: Both the received integer to be evaluated and the
 	// received maximum Collatz sequence length were valid positive integers
-	// Postcondition: The Collatz length calculated for the received integer
-	// was returned to this function's caller if the length was less than or
-	// equal to the maximum Collatz length parameter, or a negative one was
-	// returned to this function's caller if the calculated Collatz length
-	// exceeded the maximum Collatz length parameter
+	// Postcondition: The Collatz sequence length calculated for the
+	// received integer was returned to this function's caller if the length
+	// was less than or equal to the maximum Collatz sequence length
+	// parameter, or a negative one was returned to this function's caller
+	// if the calculated Collatz sequence length exceeded the maximum
+	// Collatz sequence length parameter
 
 	long int collatzLength = 0;
 
+	// Perform the
 	while ((integer != 1) &&
 	       (collatzLength < maxCollatzLength))
 	{
