@@ -199,7 +199,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 
 	const string leftColumnName = "Collatz Sequence Length";
 	const string rightColumnName = "Integer";
-	const string separator = " | "
+	const string separator = " | ";
 
 	// Print a header to label the Collatz sequence length and evaluated
 	// integer columns
