@@ -21,6 +21,7 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 				    long int maxCollatzLength);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   const int separatorLength,
 				   int leftColumnWidth);
 void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
 void sortByMappedValue(multimap<long int, int> originalMultimap,
@@ -31,6 +32,7 @@ void printTwoColumnHeader(const string leftColumnName,
 			  int leftColumnWidth);
 void printTwoColumnIntegers(const long int leftInt,
 			    const long int rightInt,
+			    const int separatorLength,
 			    int leftColumnWidth);
 string intToString(long int originalInt);
 
@@ -197,7 +199,8 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
+void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
+			   long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair
@@ -211,6 +214,11 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	const string rightColumnName = "Integer";
 	const string headerSeparator = " | ";
 
+	// Calculate the left column name and maximum Collatz sequence length's
+	// string sizes to prepare to determine the left printed column's width
+	int leftColumnNameSize = leftColumnName.size();
+	int maxCollatzLengthStringSize = intToString(maxCollatzLength).size();
+
 	// Calculate the left output column's width to separate the printed
 	// Collatz sequence length and integer values
 	int leftColumnWidth = leftColumnName.length() + headerSeparator.length();
@@ -223,6 +231,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 			     leftColumnWidth);
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
+				      separatorLength,
 				      leftColumnWidth);
 }
 
@@ -273,6 +282,7 @@ void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 }
 
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   const int separatorLength,
 				   int leftColumnWidth)
 {
 	// Precondition: The multimap this function receives holds at least one
@@ -295,6 +305,7 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	{
 		printTwoColumnIntegers((*printIterator).first,
 				       (*printIterator).second,
+				       separatorLength,
 				       leftColumnWidth);
 	}
 }
@@ -389,6 +400,7 @@ void printTwoColumnHeader(const string leftColumnName,
 
 void printTwoColumnIntegers(const long int leftInt,
 			    const long int rightInt,
+			    int separatorLength,
 			    int leftColumnWidth)
 {
 	// Precondition: This function's received left integer and right
@@ -401,8 +413,17 @@ void printTwoColumnIntegers(const long int leftInt,
 	// Code from C++ Patterns, 
 	// https://cpppatterns.com/patterns/write-data-in-columns.html
 	// Accessed Monday, November 25th, 2019
-	// Use the specified left column width to separate the left and right integers
-	cout << left << setw(leftColumnWidth) << leftInt << rightInt << endl;
+	// Use the specified left column width to separate the left integer from the right integer to be printed
+	cout << left << setw(leftColumnWidth) << leftInt;
+
+	// Include additional spaces to add the set separator length to the
+	// printed line
+	// Code from Cprogramming.com,
+	// https://www.cprogramming.com/tutorial/iomanip.html
+	// Accessed Monday, November 25th, 2019
+	cout << setw(separatorLength) << " ";
+
+	cout << rightInt << endl;
 }
 
 string intToString(long int originalInt)
