@@ -274,7 +274,7 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 	// length columns
 	printTwoColumnHeader(leftColumnName,
 			     rightColumnName,
-			     separator,
+			     headerSeparator,
 			     leftColumnWidth);
 
 	// Calculate the header separator's length to add the same separator
