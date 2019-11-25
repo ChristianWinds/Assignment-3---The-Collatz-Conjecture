@@ -20,6 +20,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   string separator,
 				   int leftColumnWidth);
 void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
 void sortByMappedValue(multimap<long int, int> originalMultimap,
@@ -257,10 +258,12 @@ void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 }
 
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   string separator,
 				   int leftColumnWidth)
 {
 	// Precondition: The multimap this function receives holds at least one
-	// valid item, and this function's received left column width is a valid
+	// valid item, this function's received separator string is a valid
+	// string, and this function's received left column width is a valid
 	// positive integer
 	// Postcondition: The items of the multimap are printed onto the screen
 	// in ascending sorted order by key value
@@ -279,9 +282,10 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 		// Code from C++ Patterns, 
 		// https://cpppatterns.com/patterns/write-data-in-columns.html
 		// Accessed Monday, November 25th, 2019
-		cout << left << setw(leftColumnWidth)
-		     << (*printIterator).first << (*printIterator).second
-		     << endl;
+		printTwoColumnIntegers((*printIterator).first,
+				       (*printIterator).second,
+				       separator,
+				       leftColumnWidth);
 	}
 }
 
@@ -371,4 +375,27 @@ void printTwoColumnHeader(const string leftColumnName,
 	cout << left << setw(leftColumnWidth) << (leftColumnName + separator);
 
 	cout << rightColumnName << endl;
+}
+
+void printTwoColumnIntegers(const long int leftInt,
+			    const long int rightInt,
+			    const string separator,
+			    int leftColumnWidth)
+{
+	// Precondition: This function's received left integer and right
+	// integer are valid integers, the separator string is a valid string,
+	// and this function's received left column width is a valid
+	// non-negative integer
+	// Postcondition: A header line in order of this function's received
+	// left integer, separator, and right integer is printed to the screen
+	// with the specified left column width 
+
+	// Code from C++ Patterns, 
+	// https://cpppatterns.com/patterns/write-data-in-columns.html
+	// Accessed Monday, November 25th, 2019
+	// Combine the left integer and separator into one column to properly
+	// space the printed header
+	cout << left << setw(leftColumnWidth) << (leftInt + separator);
+
+	cout << rightInt << endl;
 }
