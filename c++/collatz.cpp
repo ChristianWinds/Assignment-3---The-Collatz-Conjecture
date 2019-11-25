@@ -157,8 +157,7 @@ int calculateCollatzLength(int integer,
 	// Perform the Collatz Conjecture calculations upon the received integer
 	// until either the integer equals a value of one, or the Collatz
 	// sequence length exceeds the maximum permitted Collatz sequence length
-	while ((integer != 1) &&
-	       (collatzLength < maxCollatzLength))
+	do
 	{
 		// Check whether the integer is even or odd to determine which
 		// Collatz Conjecture operations should be performed
@@ -172,7 +171,8 @@ int calculateCollatzLength(int integer,
 		}
 
 		collatzLength++;
-	}
+	} while ((integer != 1) &&
+		 (collatzLength < maxCollatzLength))
 
 	// If the calculated Collatz sequence length met the maximum permitted
 	// Collatz sequence length and the integer is not one, set the Collatz
