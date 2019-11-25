@@ -256,7 +256,7 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	     printIterator != multimapParameter.end();
 	     printIterator++)
 	{
-		cout << setw(leftColumnWidth) << (*printIterator).first
+		cout << (*printIterator).first << setw(leftColumnWidth)
 		     << (*printIterator).second << endl;
 	}
 }
