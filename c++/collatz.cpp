@@ -6,7 +6,12 @@
 
 using namespace std;
 
-void storeCollatzInfo(long int maxCollatzLength);
+void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
+		      int collatzLengthsToStore,
+		      long int maxCollatzLength);
+int calculateCollatzLength(int integer,
+			   long int maxCollatzLength);
+eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -23,7 +28,8 @@ class CollatzInfo
 
 int main()
 {
-	// A multimap is used to automatically sort the Collatz sequence lengths in ascending order
+	// A multimap is used to automatically sort the Collatz sequence lengths
+	// in ascending order
 	multimap<long int, int> collatzLengthMap;
 
 	// Create an integer variable to determine the number of Collatz
@@ -32,9 +38,14 @@ int main()
 
 	const long int maxCollatzLength = 5000000000;
 
+	// Calculate the Collatz sequence lengths of the positive primitive
+	// integer range to determine the longest Collatz sequence lengths
+	// within the specified quantity of Collatz sequence lengths to store
 	storeCollatzInfo(collatzLengthMap,
 			 collatzLengthsToStore,
 			 maxCollatzLength);
+
+	return 0;
 }
 
 void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
