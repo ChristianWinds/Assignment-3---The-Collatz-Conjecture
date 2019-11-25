@@ -247,7 +247,9 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 				    long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
-	// function holds at least one Collatz sequence length and integer pair
+	// function holds at least one Collatz sequence length and integer pair,
+	// and this function's reveived maximum Collatz sequence length is a
+	// valid positive integer value
 	// Postcondition: The Collatz sequence length and integer pairs in this
 	// function's received Collatz sequence length map are printed to the
 	// screen in ascending order sorted primarily by integer magnitude, then
@@ -274,6 +276,10 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 			     rightColumnName,
 			     separator,
 			     leftColumnWidth);
+
+	// Calculate the header separator's length to add the same separator
+	// length to the map value screen output
+	int separatorLength = headerSeparator.size();
 
 	printMultimapSortedByMappedValue(collatzLengthMap);
 }
@@ -345,8 +351,10 @@ void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap)
 	     printIterator != mappedValueSortedMap.end();
 	     printIterator++)
 	{
-		cout << (*printIterator).first << "\t" <<
-			(*printIterator).second << endl;
+		printTwoColumnIntegers((*printIterator).first,
+				       (*printIterator).second,
+				       separatorLength,
+				       leftColumnWidth);
 	}
 }
 
