@@ -18,7 +18,8 @@ int calculateCollatzLength(int integer,
 void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
-void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
+void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   int leftColumnWidth);
 void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
 void sortByMappedValue(multimap<long int, int> originalMultimap,
 		       multimap<int, long int> &mappedValueSortedMap);
@@ -185,7 +186,8 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
+void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
+			   const long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair
@@ -195,11 +197,17 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	// length, then secondarily by integer magnitude when two or more
 	// Collatz sequence lengths match
 
+	const string leftColumnName = "Collatz Sequence Length";
+	const string rightColumnName = "Integer";
+
 	// Print a header to label the Collatz sequence length and evaluated
 	// integer columns
-	cout << "Collatz Sequence Length\tInteger" << endl;
+	cout << leftColumnName << " " << rightColumnName << endl;
 
-	printMultimapSortedByKeyValue(collatzLengthMap);
+	int leftColumnWidth = leftColumnName.length() + 1, 
+
+	printMultimapSortedByKeyValue(collatzLengthMap,
+				      leftColumnWidth);
 }
 
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
@@ -228,10 +236,12 @@ void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 	multimapParameter.erase(firstItem);
 }
 
-void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter)
+void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+				   int leftColumnWidth)
 {
 	// Precondition: The multimap this function receives holds at least one
-	// valid item
+	// valid item, and this function's received left column width is a valid
+	// positive integer
 	// Postcondition: The items of the multimap are printed onto the screen
 	// in ascending sorted order by key value
 
@@ -246,8 +256,8 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter)
 	     printIterator != multimapParameter.end();
 	     printIterator++)
 	{
-		cout << (*printIterator).first << "\t" <<
-			(*printIterator).second << endl;
+		cout << setw(leftColumnWidth) << (*printIterator).first
+		     << (*printIterator).second << endl;
 	}
 }
 
