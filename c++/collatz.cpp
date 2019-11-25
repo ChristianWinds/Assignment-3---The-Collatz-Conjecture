@@ -172,7 +172,7 @@ int calculateCollatzLength(int integer,
 
 		collatzLength++;
 	} while ((integer != 1) &&
-		 (collatzLength < maxCollatzLength))
+		 (collatzLength < maxCollatzLength));
 
 	// If the calculated Collatz sequence length met the maximum permitted
 	// Collatz sequence length and the integer is not one, set the Collatz
