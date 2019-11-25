@@ -19,6 +19,8 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
+void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
+multimap<int, long int> sortByMappedValue(multimap<long int, int> multimapParameter);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -262,8 +264,9 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 	// Code from cplusplus.com,
 	// http://www.cplusplus.com/reference/map/multimap/erase/
 	// Accessed Monday, November 25th, 2019
-	// Create an iterator to parse the multimap's contents for printing
-	multimap<long int, int> :: iterator printIterator;
+	// Create an iterator to parse the mapped value-sorted multimap's
+	// contents for printing
+	multimap<int, long int> :: iterator printIterator;
 
 	// Use a for loop to access and print each of the mapped value-sorted
 	// multimap's items
@@ -275,4 +278,41 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 			(*printIterator).second << endl;
 	}
 	
+}
+
+multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultimap)
+{
+	// Precondition: The multimap this function receives holds at least one
+	// valid item
+	// Postcondition: This function returns a multimap that contains the
+	// received multimap's contents sorted and stored by mapped values to
+	// this function's caller
+
+	// Create a multimap to hold this function's received parameter
+	// multimap's contents in mapped value sorted order
+	multimap<int, long int> mappedValueSortedMap;
+
+	// Code from cplusplus.com,
+	// http://www.cplusplus.com/reference/map/multimap/erase/
+	// Accessed Monday, November 25th, 2019
+	// Create an iterator to parse the original parameter multimap's
+	// contents
+	multimap<int, long int> :: iterator originalMapIterator;
+
+	// Parse the original parameter multimap's contents to transfer those
+	// contents to the mapped value-sorted multimap by mapped value
+	// order
+	for (originalMapIterator = originalMultimap.begin();
+	     originalMapIterator != originalMultimap.end();
+	     originalMapIterator++)
+	{
+		// Insert the original multimap's pairs' contents into the
+		// mapped value-sorted map by the original multimap's mapped
+		// values as keys to re-sort the original multimap's contents by
+		// the contents' original mapped values within the mapped
+		// value-sorted map
+		mappedValueSortedMap.insert(pair<int, long int> ((*originalMapIterator).second, (*originalMapIterator).first));
+	}
+
+	return mappedValueSortedMap;
 }
