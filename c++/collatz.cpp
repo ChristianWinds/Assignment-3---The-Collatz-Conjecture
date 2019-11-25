@@ -209,6 +209,9 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
+	cout << "Integer\tCollatzSequenceLength" << endl;
+
+	printMultimapSortedByMappedValue(collatzLengthMap);
 }
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 {
