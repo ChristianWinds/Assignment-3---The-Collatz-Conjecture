@@ -236,7 +236,15 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 	const string rightColumnName = "Collatz Sequence Length";
 	const string separator = " | ";
 
-	int leftColumnWidth = 0;
+	// Calculate the maximum Collatz sequence length's string size to
+	// prepare to determine the left printed column's width
+	int maxCollatzLengthStringSize = intToString(maxCollatzLength).size;
+
+	// Set the left printed column width to include both the left column
+	// name and the left column's longest possible integer string size in
+	// the left column
+	int leftColumnWidth = max(leftColumnName.size(),
+				  maxCollatzLengthString.size);
 
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
