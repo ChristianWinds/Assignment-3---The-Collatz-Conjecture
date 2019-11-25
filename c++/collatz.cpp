@@ -205,6 +205,8 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	// integer columns
 	cout << leftColumnName << separator << rightColumnName << endl;
 
+	// Calculate the left output column's width to separate the printed
+	// Collatz sequence length and integer values
 	int leftColumnWidth = leftColumnName.length() + separator.length();
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
@@ -220,9 +222,13 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 	// screen in ascending order sorted primarily by integer magnitude, then
 	// secondarily by Collatz sequence length
 
+	const string leftColumnName = "Integer";
+	const string rightColumnName = "Collatz Sequence Length";
+	const string separator = " | ";
+
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
-	cout << "Integer\tCollatz Sequence Length" << endl;
+	cout << leftColumnName << separator << rightColumnName << endl;
 
 	printMultimapSortedByMappedValue(collatzLengthMap);
 }
