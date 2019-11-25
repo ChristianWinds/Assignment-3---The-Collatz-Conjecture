@@ -252,8 +252,12 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 {
 	// Precondition: The multimap this function receives holds at least one
 	// valid item
-	// Postcondition: The items of the multimap are printed onto the screen
-	// in ascending sorted order by mapped value
+	// Postcondition: The items from the multimap received by this function
+	// are printed onto the screen in ascending sorted order by mapped value
+
+	// Create a mapped value-sorted duplicate multimap by re-sorting this
+	// function's received multimap parameter's contents in mapped value order
+	multimap<int, long int> mappedValueSortedMap = sortByMappedValue(multimapParameter);
 
 	// Code from cplusplus.com,
 	// http://www.cplusplus.com/reference/map/multimap/erase/
@@ -261,4 +265,14 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 	// Create an iterator to parse the multimap's contents for printing
 	multimap<long int, int> :: iterator printIterator;
 
+	// Use a for loop to access and print each of the mapped value-sorted
+	// multimap's items
+	for (printIterator = mappedValueSortedMap.begin();
+	     printIterator != mappedValueSortedMap.end();
+	     printIterator++)
+	{
+		cout << (*printIterator).first << "\t" <<
+			(*printIterator).second << endl;
+	}
+	
 }
