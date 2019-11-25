@@ -283,7 +283,9 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 	// length to the map value screen output
 	int separatorLength = headerSeparator.size();
 
-	printMultimapSortedByMappedValue(collatzLengthMap);
+	printMultimapSortedByMappedValue(collatzLengthMap,
+					 separatorLength,
+					 leftColumnWidth);
 }
 
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
