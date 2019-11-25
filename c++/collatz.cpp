@@ -283,15 +283,12 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultimap,
 					  multimap<int, long int> mappedValueSortedMap)
 {
-	// Precondition: The multimap this function receives holds at least one
-	// valid item
-	// Postcondition: This function returns a multimap that contains the
-	// received multimap's contents sorted and stored by mapped values to
-	// this function's caller
-
-	// Create a multimap to hold this function's received parameter
-	// multimap's contents in mapped value sorted order
-	multimap<int, long int> mappedValueSortedMap;
+	// Precondition: The "original multimap" multimap this function receives
+	// holds at least one valid item, and the "mapped value-sorted map"
+	// multimap this function receives is empty
+	// Postcondition: The "mapped value sorted multimap" received by this
+	// function holds the "original multimap" map contents stored in
+	// ascending order of the "original multimap" mapped values
 
 	// Code from cplusplus.com,
 	// http://www.cplusplus.com/reference/map/multimap/erase/
@@ -314,6 +311,4 @@ multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultim
 		// value-sorted map
 		mappedValueSortedMap.insert(pair<int, long int> ((*originalMapIterator).second, (*originalMapIterator).first));
 	}
-
-	return mappedValueSortedMap;
 }
