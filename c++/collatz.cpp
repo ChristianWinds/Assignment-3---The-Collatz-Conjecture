@@ -20,7 +20,7 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
 void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
-multimap<int, long int> sortByMappedValue(multimap<long int, int> multimapParameter);
+multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultimap);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
