@@ -221,7 +221,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 			     leftColumnWidth);
 
 	printMultimapSortedByKeyValue(collatzLengthMap,
-				      leftIntColumnWidth);
+				      leftColumnWidth);
 }
 
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
