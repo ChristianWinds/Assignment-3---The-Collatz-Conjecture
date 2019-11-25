@@ -247,7 +247,7 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 	// Set the left printed column width to include both the left column
 	// name and the left column's longest possible integer string size in
 	// the left column
-	int leftColumnWidth = max(leftColumnName.size(),
+	int leftColumnWidth = max(1,
 				  maxCollatzLengthStringSize);
 
 	// Print a header to label the evaluated integer and Collatz sequence
