@@ -50,8 +50,8 @@ int main()
 
 	const long int maxCollatzLength = 5000000000;
 
-	// Create an integer constant to designate the maximum integer to receive
-	// a Collatz sequence length calculation
+	// Create an integer constant to designate the maximum integer to
+	// receive a Collatz sequence length calculation
 	const int maxIntToEvaluate = 10;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
@@ -110,8 +110,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 			// longest Collatz sequence length and integer pairs
 			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
-				collatzLengthMap.insert(pair<long int, int>(intToEvaluate,
-									    collatzLength));
+				collatzLengthMap.insert(pair<long int, int>(collatzLength,
+									    intToEvaluate));
 			}
 			else if (collatzLength > collatzMapIterator -> first)
 			{
@@ -119,8 +119,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 				// integer pair to update the longest Collatz
 				// sequence lengths within the specified number
 				// of stored Collatz sequence lengths
-				collatzLengthMap.insert(pair<long int, int>(intToEvaluate,
-									    collatzLength));
+				collatzLengthMap.insert(pair<long int, int>(collatzLength,
+									    intToEvaluate));
 
 				// Erase the lowest Collatz sequence length from
 				// the Collatz sequence length multimap to limit
