@@ -16,7 +16,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 		      int maxIntToEvaluate);
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap);
+void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
+			   long int maxCollatzLength);
 void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 				    long int maxCollatzLength);
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
@@ -73,7 +74,8 @@ int main()
 			 maxCollatzLength,
 			 maxIntToEvaluate);
 
-	printByCollatzLengths(collatzLengthMap);
+	printByCollatzLengths(collatzLengthMap,
+			      maxCollatzLength);
 
 	// Print a blank line to separate the two printed Collatz sequence
 	// information printouts
