@@ -107,7 +107,7 @@ int calculateCollatzLength(int integer,
 	long int collatzLength = 0;
 
 	// Perform the Collatz Conjecture calculations upon the received integer
-	// until either the integer equals a value of one or the Collatz
+	// until either the integer equals a value of one, or the Collatz
 	// sequence length exceeds the maximum permitted Collatz sequence length
 	while ((integer != 1) &&
 	       (collatzLength < maxCollatzLength))
@@ -124,6 +124,16 @@ int calculateCollatzLength(int integer,
 		}
 
 		collatzLength++;
+	}
+
+	// If the calculated Collatz sequence length met the maximum permitted
+	// Collatz sequence length and the integer is not one, set the Collatz
+	// sequence length to negative one to indicate that the integer's
+	// Collatz sequence length exceeds the maximum permitted
+	if ((collatzLength >= maxCollatzLength) &&
+	    (integer != 1))
+	{
+		collatzLength = -1;
 	}
 
 	return collatzLength;
