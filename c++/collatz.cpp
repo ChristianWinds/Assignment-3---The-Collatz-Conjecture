@@ -277,7 +277,6 @@ void printMultimapSortedByMappedValue(multimap<long int, int> multimapParameter)
 		cout << (*printIterator).first << "\t" <<
 			(*printIterator).second << endl;
 	}
-	
 }
 
 multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultimap)
@@ -297,7 +296,7 @@ multimap<int, long int> sortByMappedValue(multimap<long int, int> originalMultim
 	// Accessed Monday, November 25th, 2019
 	// Create an iterator to parse the original parameter multimap's
 	// contents
-	multimap<int, long int> :: iterator originalMapIterator;
+	multimap<long int, int> :: iterator originalMapIterator;
 
 	// Parse the original parameter multimap's contents to transfer those
 	// contents to the mapped value-sorted multimap by mapped value
