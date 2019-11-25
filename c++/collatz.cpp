@@ -14,6 +14,7 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
 void eraseFirstMultimapItem(multimap<long int, int> multimapParameter);
+void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
@@ -51,6 +52,7 @@ int main()
 			 collatzLengthsToStore,
 			 maxCollatzLength,
 			 maxIntToEvaluate);
+
 
 	return 0;
 }
@@ -178,4 +180,12 @@ void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
 	multimap<long int, int> :: iterator firstItem = multimapParameter.begin();
 
 	multimapParameter.erase(firstItem);
+}
+
+void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter)
+{
+	// Precondition: The multimap this function receives holds at least one
+	// valid item
+	// Postondition: The items of the multimap are printed in ascending
+	// sorted order by key value
 }
