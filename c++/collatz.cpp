@@ -232,6 +232,10 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
 			     headerSeparator,
 			     leftColumnWidth);
 
+	// Calculate the header separator's length to add the same separator
+	// length to the map value screen output
+	int separatorLength = headerSeparator.size();
+
 	printMultimapSortedByKeyValue(collatzLengthMap,
 				      separatorLength,
 				      leftColumnWidth);
