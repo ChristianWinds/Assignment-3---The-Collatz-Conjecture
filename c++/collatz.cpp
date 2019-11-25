@@ -37,12 +37,10 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 	// Precondition:
 	// Postcondition:
 
-	// Create lowes
-	int lowestCollatzLength = -1;
-	int highestCollatzLength = INT_MAX;
-	
-	multimap <long int, long int> :: iterator collatzMapIterator;
+	// Create a multimap iterator to view the tenth item in the multimap
+	multimap <long int, int> :: iterator collatzMapIterator;
 
+	// 
 	for (int integer = 1; integer <= INT_MAX; integer++)
 	{
 		long int collatzLength = calculateCollatzLength(integer,
@@ -58,13 +56,13 @@ void storeCollatzInfo(multimap<long int, int> collatzLengthMap,
 			// length and integer pairs
 			if (collatzLengthMap.size < 10)
 			{
-				collatzLengthMap.insert(pair<int, long int>(integer,
+				collatzLengthMap.insert(pair<long int, int>(integer,
 									    collatzLength));
 			}
 
 			else if (collatzLength > collatzMapIterator -> first)
 			{
-				collatzLengthMap.insert(pair<int, long int>(integer,
+				collatzLengthMap.insert(pair<long int, int>(integer,
 									    collatzLength));
 
 				eraseFirstMultimapItem(collatzLengthMap);
@@ -106,8 +104,13 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-eraseFirstMultimapItem()
+eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
 	// Postcondition: The multimap's first item was erased
+
+	// Create an iterator to select the first multimap item for erasure
+	multimap<long int, int> :: iterator firstItem = multimapParameter;
+
+	multimapParameter.erase(firstItem);
 }
