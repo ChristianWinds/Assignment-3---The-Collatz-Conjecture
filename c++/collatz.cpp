@@ -179,7 +179,12 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair
 	// Postcondition: The Collatz sequence length and integer pairs in this
-	// function's received Collatz sequence length map are printed to the screen in ascending
+	// function's received Collatz sequence length map are printed to the
+	// screen in ascending order sorted primarily by Collatz sequence
+	// length, then secondarily by integer magnitude when two or more
+	// Collatz sequence lengths match
+
+	
 }
 
 void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
