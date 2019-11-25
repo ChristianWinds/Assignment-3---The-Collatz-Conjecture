@@ -226,9 +226,11 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 	const string rightColumnName = "Collatz Sequence Length";
 	const string separator = " | ";
 
+	int leftColumnWidth = 0;
+
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
-	cout << leftColumnName << separator << rightColumnName << endl;
+	cout << left << setw(leftColumnWidth) << leftColumnName << separator << rightColumnName << endl;
 
 	printMultimapSortedByMappedValue(collatzLengthMap);
 }
