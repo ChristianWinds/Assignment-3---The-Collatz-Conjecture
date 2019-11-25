@@ -50,7 +50,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to receive
 	// a Collatz sequence length calculation
-	const int maxIntToEvaluate = 5;
+	const int maxIntToEvaluate = 10;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
