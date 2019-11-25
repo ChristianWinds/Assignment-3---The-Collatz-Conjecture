@@ -55,6 +55,7 @@ int main()
 			 maxCollatzLength,
 			 maxIntToEvaluate);
 
+	printByCollatzLengths(collatzLengthMap);
 
 	return 0;
 }
@@ -171,6 +172,14 @@ int calculateCollatzLength(int integer,
 	}
 
 	return collatzLength;
+}
+
+void printByCollatzLengths(multimap<long int, int> collatzLengthMap)
+{
+	// Precondition: The Collatz sequence length multimap received by this
+	// function holds at least one Collatz sequence length and integer pair
+	// Postcondition: The Collatz sequence length and integer pairs in this
+	// function's received Collatz sequence length map are printed to the screen in ascending
 }
 
 void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
