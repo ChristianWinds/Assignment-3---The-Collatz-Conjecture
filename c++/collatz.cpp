@@ -157,7 +157,7 @@ void eraseFirstMultimapItem(multimap<long int, int> multimapParameter)
 	// Postcondition: The multimap's first item was erased
 
 	// Create an iterator to select the first multimap item for erasure
-	multimap<long int, int> :: iterator firstItem = multimapParameter;
+	multimap<long int, int> :: iterator firstItem = multimapParameter.begin();
 
 	multimapParameter.erase(firstItem);
 }
