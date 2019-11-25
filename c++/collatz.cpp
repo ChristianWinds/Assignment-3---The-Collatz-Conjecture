@@ -399,3 +399,28 @@ void printTwoColumnIntegers(const long int leftInt,
 	// Use the specified left column width to separate the left and right integers
 	cout << left << setw(leftColumnWidth) << leftInt << rightInt << endl;
 }
+
+string intToString(long int originalInteger)
+{
+	// Precondition: The integer this function received is a valid integer
+	// Postcondition: This function returns a string of this function's
+	// received parameter integer to this function's caller
+
+	// Code from cplusplus.com,
+	// http://www.cplusplus.com/articles/D9j2Nwbp/
+	// Accessed Monday, November 25th, 2019
+	// Create an output string stream to convert this function's original
+	// integer parameter to a string
+	ostringstream convert;
+
+	// Place the original integer parameter's content into the output string
+	// stream to convert the integer parameter's content into string
+	// characters
+	convert << originalInteger;
+
+	// Place the output string stream's content into a "string integer"
+	// variable to store the string stream's content as a string
+	string stringInteger = convert.str();
+
+	return stringInteger;
+}
