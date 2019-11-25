@@ -437,7 +437,8 @@ void printTwoColumnIntegers(const long int leftInt,
 	// Code from C++ Patterns, 
 	// https://cpppatterns.com/patterns/write-data-in-columns.html
 	// Accessed Monday, November 25th, 2019
-	// Use the specified left column width to separate the left integer from the right integer to be printed
+	// Use the specified left column width to separate the left integer from
+	// the right integer to be printed
 	cout << left << setw(leftColumnWidth) << leftInt;
 
 	// Include additional spaces to add the set separator length to the
