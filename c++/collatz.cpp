@@ -24,7 +24,9 @@ void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 				   const int separatorLength,
 				   int leftColumnWidth);
-void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap);
+void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
+				      const int separatorLength,
+				      int leftColumnWidth)
 void sortByMappedValue(multimap<long int, int> originalMultimap,
 		       multimap<int, long int> &mappedValueSortedMap);
 void printTwoColumnHeader(const string leftColumnName,
@@ -324,7 +326,9 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	}
 }
 
-void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap)
+void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
+				      const int separatorLength,
+				      int leftColumnWidth)
 {
 	// Precondition: The multimap this function receives holds at least one
 	// valid item
