@@ -206,7 +206,9 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap)
 	// function's received Collatz sequence length map are printed to the
 	// screen in ascending order sorted primarily by integer magnitude, then
 	// secondarily by Collatz sequence length
-	
+
+	// Print a header to label the evaluated integer and Collatz sequence
+	// length columns
 }
 void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
 {
