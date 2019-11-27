@@ -68,6 +68,8 @@ int main()
 	// receive a Collatz sequence length calculation
 	const int maxIntToEvaluate = 11;
 
+	cout << "TEST: Calling storeCollatzInfo" << endl;
+
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
 	// within the specified quantity of Collatz sequence lengths to store
@@ -142,11 +144,15 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 				collatzLengthMap.insert(pair<long int, int>(collatzLength,
 									    intToEvaluate));
 
+				cout << "TEST: Calling eraseFirstMultimapItem" << endl;
+
 				// Erase the lowest Collatz sequence length from
 				// the Collatz sequence length multimap to limit
 				// the number of stored Collatz sequence lengths
 				// to the specified length storage quantity
 				eraseFirstMultimapItem(collatzLengthMap);
+
+				cout << "TEST: Completed eraseFirstMultimapItem" << endl;
 			}
 		}
 
