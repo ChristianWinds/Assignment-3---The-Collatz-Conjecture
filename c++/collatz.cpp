@@ -66,7 +66,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const int maxIntToEvaluate = 10000;
+	const int maxIntToEvaluate = 11;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
@@ -76,8 +76,12 @@ int main()
 			 maxCollatzLength,
 			 maxIntToEvaluate);
 
+	cout << "TEST: Completed storeCollatzInfo" << endl;
+
 	printByCollatzLengths(collatzLengthMap,
 			      maxCollatzLength);
+
+	cout << "TEST: Completed printByCollatzLengths" << endl;
 
 	// Print a blank line to separate the two printed Collatz sequence
 	// information printouts
