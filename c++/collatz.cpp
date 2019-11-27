@@ -60,13 +60,13 @@ int main()
 
 	// Create an integer variable to determine the number of Collatz
 	// sequence lengths to store
-	const int collatzLengthsToStore = 10000;
+	const int collatzLengthsToStore = 10;
 
 	const long int maxCollatzLength = 5000000000;
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const int maxIntToEvaluate = 10;
+	const int maxIntToEvaluate = 10000;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
