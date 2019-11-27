@@ -60,7 +60,7 @@ int main()
 
 	// Create an integer variable to determine the number of Collatz
 	// sequence lengths to store
-	const int collatzLengthsToStore = 10;
+	const int collatzLengthsToStore = 10000;
 
 	const long int maxCollatzLength = 5000000000;
 
