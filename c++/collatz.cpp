@@ -19,7 +19,7 @@ int calculateCollatzLength(long long int integer,
 void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
 			   long int maxCollatzLength);
 void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLengthMap,
-				    long int maxCollatzLength);
+				    long int maxInteger);
 void eraseFirstMultimapItem(multimap<long int, long long int> &multimapParameter);
 void printMultimapSortedByKeyValue(multimap<long int, long long int> multimapParameter,
 				   const int separatorLength,
@@ -84,7 +84,7 @@ int main()
 	cout << endl;
 
 	printByCollatzSequenceIntegers(collatzLengthMap,
-				       maxCollatzLength);
+				       maxIntToEvaluate);
 
 	return 0;
 }
@@ -248,7 +248,7 @@ void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
 }
 
 void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLengthMap,
-				    long int maxCollatzLength)
+				    long int maxInteger)
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair,
@@ -263,16 +263,16 @@ void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLen
 	const string rightColumnName = "Collatz Sequence Length";
 	const string headerSeparator = " | ";
 
-	// Calculate the left column name and maximum Collatz sequence length's
-	// string sizes to prepare to determine the left printed column's width
+	// Calculate the left column name and maximum integer string sizes to
+	// prepare to determine the left printed column's width
 	int leftColumnNameSize = leftColumnName.size();
-	int maxCollatzLengthStringSize = intToString(maxCollatzLength).size();
+	int maxIntegerStringSize = intToString(maxInteger).size();
 
 	// Set the left printed column width to include both the left column
 	// name and the left column's longest possible integer string size in
 	// the left column
 	int leftColumnWidth = max(leftColumnNameSize,
-				  maxCollatzLengthStringSize);
+				  maxIntegerStringSize);
 
 	// Print a header to label the evaluated integer and Collatz sequence
 	// length columns
