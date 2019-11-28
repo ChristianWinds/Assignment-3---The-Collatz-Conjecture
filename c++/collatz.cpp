@@ -140,6 +140,12 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 			{
 				collatzLengthMap.insert(pair<long int, int>(collatzLength,
 									    intToEvaluate));
+
+				// If the Collatz sequence length multimap's size has become a size of one, set the Collatz sequence length multimap's iterator to the Collatz sequence length multimap's first item to delete the first map item as larger Collatz sizes are found
+				if (collatzLengthMap.size() == 1)
+				{
+					collatzMapIterator = collatzLengthMap.begin();
+				}
 			}
 			else if (collatzLength > collatzMapIterator -> first)
 			{
