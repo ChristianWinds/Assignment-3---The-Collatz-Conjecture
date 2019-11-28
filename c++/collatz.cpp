@@ -66,7 +66,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const int maxIntToEvaluate = INT_MAX;
+	const long int maxIntToEvaluate = INT_MAX;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
@@ -89,10 +89,10 @@ int main()
 	return 0;
 }
 
-void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
+void storeCollatzInfo(multimap<long int, long int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
-		      int maxIntToEvaluate)
+		      long int maxIntToEvaluate)
 {
 	// Precondition: The Collatz sequence length multimap is empty, and this
 	// function's received quantity of Collatz sequence lengths to store,
@@ -105,13 +105,13 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 	// Create a multimap iterator and set the iterator to the Collatz
 	// sequence length multimap's beginning to view the smallest Collatz
 	// sequence length item in the multimap
-	multimap <long int, int> :: iterator collatzMapIterator;
+	multimap <long int, long int> :: iterator collatzMapIterator;
 	collatzMapIterator = collatzLengthMap.begin();
 
 	// Evaluate integers from one to the maximum primitive integer value to
 	// determine the longest Collatz sequence lengths possible for the
 	// integers
-	for (int intToEvaluate = 1;
+	for (long int intToEvaluate = 1;
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
 	{
@@ -128,8 +128,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 			// longest Collatz sequence length and integer pairs
 			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
-				collatzLengthMap.insert(pair<long int, int>(collatzLength,
-									    intToEvaluate));
+				collatzLengthMap.insert(pair<long int, long int>(collatzLength,
+										 intToEvaluate));
 			}
 			else if (collatzLength > collatzMapIterator -> first)
 			{
@@ -137,8 +137,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 				// integer pair to update the longest Collatz
 				// sequence lengths within the specified number
 				// of stored Collatz sequence lengths
-				collatzLengthMap.insert(pair<long int, int>(collatzLength,
-									    intToEvaluate));
+				collatzLengthMap.insert(pair<long int, long int>(collatzLength,
+										 intToEvaluate));
 
 				// Erase the lowest Collatz sequence length from
 				// the Collatz sequence length multimap to limit
@@ -158,7 +158,7 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 	}
 }
 
-int calculateCollatzLength(int integer,
+int calculateCollatzLength(long int integer,
 			   long int maxCollatzLength)
 {
 	// Precondition: Both the received integer to be evaluated and the
@@ -205,7 +205,7 @@ int calculateCollatzLength(int integer,
 	return collatzLength;
 }
 
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
+void printByCollatzLengths(multimap<long int, long int> collatzLengthMap,
 			   long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
@@ -247,7 +247,7 @@ void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
 				      leftColumnWidth);
 }
 
-void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
+void printByCollatzSequenceIntegers(multimap<long int, long int> collatzLengthMap,
 				    long int maxCollatzLength)
 {
 	// Precondition: The Collatz sequence length multimap received by this
@@ -290,18 +290,18 @@ void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
 					 leftColumnWidth);
 }
 
-void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter)
+void eraseFirstMultimapItem(multimap<long int, long int> &multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
 	// Postcondition: The multimap's first item was erased
 
 	// Create an iterator to select the first multimap item for erasure
-	multimap<long int, int> :: iterator firstItem = multimapParameter.begin();
+	multimap<long int, long int> :: iterator firstItem = multimapParameter.begin();
 
 	multimapParameter.erase(firstItem);
 }
 
-void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+void printMultimapSortedByKeyValue(multimap<long int, long int> multimapParameter,
 				   const int separatorLength,
 				   int leftColumnWidth)
 {
@@ -316,7 +316,7 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	// http://www.cplusplus.com/reference/map/multimap/erase/
 	// Accessed Monday, November 25th, 2019
 	// Create an iterator to parse the multimap's contents for printing
-	multimap<long int, int> :: iterator printIterator;
+	multimap<long int, long int> :: iterator printIterator;
 
 	// Use a for loop to access and print each of the multimap's items
 	for (printIterator = multimapParameter.begin();
@@ -330,7 +330,7 @@ void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
 	}
 }
 
-void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
+void printMultimapSortedByMappedValue(multimap<long int, long int> originalMultimap,
 				      const int separatorLength,
 				      int leftColumnWidth)
 {
@@ -342,7 +342,7 @@ void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
 	// Create a mapped value-sorted duplicate multimap by re-sorting this
 	// function's received multimap parameter's contents in mapped value
 	// order
-	multimap<int, long int> mappedValueSortedMap;
+	multimap<long int, long int> mappedValueSortedMap;
 	sortByMappedValue(originalMultimap,
 			  mappedValueSortedMap);
 
@@ -351,7 +351,7 @@ void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
 	// Accessed Monday, November 25th, 2019
 	// Create an iterator to parse the mapped value-sorted multimap's
 	// contents for printing
-	multimap<int, long int> :: iterator printIterator;
+	multimap<long int, long int> :: iterator printIterator;
 
 	// Use a for loop to access and print each of the mapped value-sorted
 	// multimap's items
@@ -366,8 +366,8 @@ void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
 	}
 }
 
-void sortByMappedValue(multimap<long int, int> originalMultimap,
-		       multimap<int, long int> &mappedValueSortedMap)
+void sortByMappedValue(multimap<long int, long int> originalMultimap,
+		       multimap<long int, long int> &mappedValueSortedMap)
 {
 	// Precondition: The "original multimap" multimap this function receives
 	// holds at least one valid item, and the "mapped value-sorted map"
@@ -381,7 +381,7 @@ void sortByMappedValue(multimap<long int, int> originalMultimap,
 	// Accessed Monday, November 25th, 2019
 	// Create an iterator to parse the original parameter multimap's
 	// contents
-	multimap<long int, int> :: iterator originalMapIterator;
+	multimap<long int, long int> :: iterator originalMapIterator;
 
 	// Parse the original parameter multimap's contents to transfer those
 	// contents to the mapped value-sorted multimap by mapped value
@@ -395,7 +395,7 @@ void sortByMappedValue(multimap<long int, int> originalMultimap,
 		// values as keys to re-sort the original multimap's contents by
 		// the contents' original mapped values within the mapped
 		// value-sorted map
-		mappedValueSortedMap.insert(pair<int, long int> ((*originalMapIterator).second, (*originalMapIterator).first));
+		mappedValueSortedMap.insert(pair<long int, long int> ((*originalMapIterator).second, (*originalMapIterator).first));
 	}
 }
 
