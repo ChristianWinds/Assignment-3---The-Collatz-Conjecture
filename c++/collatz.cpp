@@ -216,6 +216,7 @@ void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
 	// length, then secondarily by integer magnitude when two or more
 	// Collatz sequence lengths match
 
+	// Create header information to set the header's contents
 	const string leftColumnName = "Collatz Sequence Length";
 	const string rightColumnName = "Integer";
 	const string headerSeparator = " | ";
@@ -252,13 +253,14 @@ void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLen
 {
 	// Precondition: The Collatz sequence length multimap received by this
 	// function holds at least one Collatz sequence length and integer pair,
-	// and this function's reveived maximum Collatz sequence length is a
-	// valid positive integer value
+	// and this function's reveived maximum evaluated integer is a valid
+	// positive integer value
 	// Postcondition: The Collatz sequence length and integer pairs in this
 	// function's received Collatz sequence length map are printed to the
 	// screen in ascending order sorted primarily by integer magnitude, then
 	// secondarily by Collatz sequence length
 
+	// Create header information to set the header's contents
 	const string leftColumnName = "Integer";
 	const string rightColumnName = "Collatz Sequence Length";
 	const string headerSeparator = " | ";
@@ -293,7 +295,7 @@ void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLen
 void eraseFirstMultimapItem(multimap<long int, long long int> &multimapParameter)
 {
 	// Precondition: The received multimap holds at least one item
-	// Postcondition: The multimap's first item was erased
+	// Postcondition: The multimap's first item is erased
 
 	// Create an iterator to select the first multimap item for erasure
 	multimap<long int, long long int> :: iterator firstItem = multimapParameter.begin();
@@ -372,7 +374,7 @@ void sortByMappedValue(multimap<long int, long long int> originalMultimap,
 	// Precondition: The "original multimap" multimap this function receives
 	// holds at least one valid item, and the "mapped value-sorted map"
 	// multimap this function receives is empty
-	// Postcondition: The "mapped value sorted multimap" received by this
+	// Postcondition: The "mapped value-sorted multimap" received by this
 	// function holds the "original multimap" map contents stored in
 	// ascending order of the "original multimap" mapped values
 
@@ -455,7 +457,7 @@ void printTwoColumnIntegers(const long long int leftInt,
 
 string intToString(long long int originalInt)
 {
-	// Precondition: The integer this function received is a valid integer
+	// Precondition: The integer this function receives is a valid integer
 	// Postcondition: This function returns a string of this function's
 	// received parameter integer to this function's caller
 
