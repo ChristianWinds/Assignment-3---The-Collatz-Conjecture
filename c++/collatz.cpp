@@ -45,10 +45,12 @@ int main()
 	// in ascending order
 	multimap<long int, long long int> collatzLengthMap;
 
-	// Create an integer variable to determine the number of Collatz
+	// Create an integer constant to determine the number of Collatz
 	// sequence lengths to store
 	const int collatzLengthsToStore = 10;
 
+	// Create an integer constant to determine the maximum permitted Collatz
+	// sequence length to store
 	const long int maxCollatzLength = 5000000000;
 
 	// Create an integer constant to designate the maximum integer to
@@ -89,15 +91,15 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 	// specified number of longest Collatz sequence lengths to store and
 	// the lengths' respective integers
 
-	// Create a multimap iterator and set the iterator to the Collatz
-	// sequence length multimap's beginning to view the smallest Collatz
-	// sequence length item in the multimap
+	// Create a multimap iterator set to the Collatz sequence length
+	// multimap's start to view the smallest Collatz sequence length item in
+	// the multimap
 	multimap <long int, long long int> :: iterator collatzMapSmallestSequence;
 	collatzMapSmallestSequence = collatzLengthMap.begin();
 
 	// Evaluate integers from one to the specified maximum integer to
 	// evaluate to determine the longest Collatz sequence lengths possible
-	// for the integers
+	// for the integers in the set integer range
 	for (long long int intToEvaluate = 1;
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
@@ -111,7 +113,7 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 		if (collatzLength > 0)
 		{
 			// Check the number of elements in the Collatz Length
-			// multimap to keep the specified number of 
+			// multimap to retain only the specified quantity of 
 			// longest Collatz sequence length and integer pairs
 			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
@@ -122,8 +124,8 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 			{
 				// Insert the new Collatz sequence length and
 				// integer pair to update the longest Collatz
-				// sequence lengths within the specified number
-				// of stored Collatz sequence lengths
+				// sequence lengths within the specified
+				// quantity of stored Collatz sequence lengths
 				collatzLengthMap.insert(pair<long int, long long int>(collatzLength,
 										      intToEvaluate));
 
@@ -148,14 +150,14 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 int calculateCollatzLength(long long int integer,
 			   long int maxCollatzLength)
 {
-	// Precondition: Both the received integer to be evaluated and the
-	// received maximum Collatz sequence length were valid positive integers
+	// Precondition: This function's received integer to be evaluated and
+	// received maximum Collatz sequence length are valid positive integers
 	// Postcondition: The Collatz sequence length calculated for the
-	// received integer was returned to this function's caller if the length
-	// was less than or equal to the maximum Collatz sequence length
-	// parameter, or a negative one was returned to this function's caller
-	// if the calculated Collatz sequence length exceeded the maximum
-	// Collatz sequence length parameter
+	// received integer is returned to this function's caller if the length
+	// is less than or equal to the maximum Collatz sequence length
+	// parameter, or a negative one is returned to this function's caller if
+	// the calculated Collatz sequence length exceeds the maximum Collatz
+	// sequence length parameter
 
 	long int collatzLength = 0;
 
@@ -281,8 +283,10 @@ void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLen
 
 void eraseFirstMultimapItem(multimap<long int, long long int> &multimapParameter)
 {
-	// Precondition: The received multimap holds at least one item
-	// Postcondition: The multimap's first item is erased
+	// Precondition: This function's received multimap holds at least one
+	// item
+	// Postcondition: The fitst item of this function's received multimap's
+	// is erased
 
 	// Create an iterator to select the first multimap item for erasure
 	multimap<long int, long long int> :: iterator firstItem = multimapParameter.begin();
