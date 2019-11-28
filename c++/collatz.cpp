@@ -13,7 +13,7 @@ using namespace std;
 void storeCollatzInfo(multimap<long int, long int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
-		      int maxIntToEvaluate);
+		      long int maxIntToEvaluate);
 int calculateCollatzLength(long int integer,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, long int> collatzLengthMap,
