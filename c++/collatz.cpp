@@ -66,7 +66,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const int maxIntToEvaluate = 11;
+	const int maxIntToEvaluate = 10000;
 
 	cout << "TEST: Calling storeCollatzInfo" << endl;
 
