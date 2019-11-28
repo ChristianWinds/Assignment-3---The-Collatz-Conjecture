@@ -119,8 +119,14 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
 	{
+		cout << "TEST: Iterated storeCollatzInfo for loop\nTEST: intToEvaluate = " << intToEvaluate << endl;
+
+		cout << "TEST: Calling long int collatzLength = calculateCollatzLength(intToEvaluate,maxCollatzLength);" << endl;
+
 		long int collatzLength = calculateCollatzLength(intToEvaluate,
 								maxCollatzLength);
+
+		cout << "TEST: Finished long int collatzLength = calculateCollatzLength(intToEvaluate,maxCollatzLength);" << endl;
 
 		// Check if the current integer's Collatz sequence length is
 		// greater than zero to prevent storage of invalid Collatz
