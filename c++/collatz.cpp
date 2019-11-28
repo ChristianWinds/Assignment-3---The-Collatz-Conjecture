@@ -68,8 +68,6 @@ int main()
 	// receive a Collatz sequence length calculation
 	const int maxIntToEvaluate = 10000;
 
-	cout << "TEST: Calling storeCollatzInfo" << endl;
-
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
 	// within the specified quantity of Collatz sequence lengths to store
@@ -78,12 +76,8 @@ int main()
 			 maxCollatzLength,
 			 maxIntToEvaluate);
 
-	cout << "TEST: Completed storeCollatzInfo" << endl;
-
 	printByCollatzLengths(collatzLengthMap,
 			      maxCollatzLength);
-
-	cout << "TEST: Completed printByCollatzLengths" << endl;
 
 	// Print a blank line to separate the two printed Collatz sequence
 	// information printouts
@@ -121,14 +115,8 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
 	{
-		cout << "TEST: Iterated storeCollatzInfo for loop\nTEST: intToEvaluate = " << intToEvaluate << endl;
-
-		cout << "TEST: Calling long int collatzLength = calculateCollatzLength(intToEvaluate,maxCollatzLength);" << endl;
-
 		long int collatzLength = calculateCollatzLength(intToEvaluate,
 								maxCollatzLength);
-
-		cout << "TEST: Finished long int collatzLength = calculateCollatzLength(intToEvaluate,maxCollatzLength);" << endl;
 
 		// Check if the current integer's Collatz sequence length is
 		// greater than zero to prevent storage of invalid Collatz
@@ -142,37 +130,21 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 			{
 				collatzLengthMap.insert(pair<long int, int>(collatzLength,
 									    intToEvaluate));
-
-				/* TEST DISABLE
-				// If the Collatz sequence length multimap's size has become a size of one, set the Collatz sequence length multimap's iterator to the Collatz sequence length multimap's first item to delete the first map item as larger Collatz sizes are found
-				if (collatzLengthMap.size() == 1)
-				{
-					collatzMapIterator = collatzLengthMap.begin();
-				} */
 			}
 			else if (collatzLength > collatzMapIterator -> first)
 			{
-				cout << "TEST: storeCollatzInfo: Completed `collatzLength > collatzMapIterator -> first`" << endl;
-
 				// Insert the new Collatz sequence length and
 				// integer pair to update the longest Collatz
 				// sequence lengths within the specified number
 				// of stored Collatz sequence lengths
-				cout << "TEST: storeCollatzInfo: Running `collatzLengthMap.insert(pair<long int, int>(collatzLength, intToEvaluate));`" << endl;
 				collatzLengthMap.insert(pair<long int, int>(collatzLength,
 									    intToEvaluate));
-
-				cout << "TEST: storeCollatzInfo: Finished `collatzLengthMap.insert(pair<long int, int>(collatzLength, intToEvaluate));`" << endl;
-
-				cout << "TEST: Calling eraseFirstMultimapItem" << endl;
 
 				// Erase the lowest Collatz sequence length from
 				// the Collatz sequence length multimap to limit
 				// the number of stored Collatz sequence lengths
 				// to the specified length storage quantity
 				eraseFirstMultimapItem(collatzLengthMap);
-
-				cout << "TEST: Completed eraseFirstMultimapItem" << endl;
 			}
 		}
 
