@@ -39,19 +39,6 @@ void printTwoColumnIntegers(const long long int leftInt,
 			    int leftColumnWidth);
 string intToString(long long int originalInt);
 
-// This program employs a "CollatzInfo" class type to pair integers with the
-// integers' respective Collatz sequence lengths
-class CollatzInfo
-{
-	public:
-
-	long long int integer;
-
-	// Create an integer variable to store an integer's Collatz sequence
-	// length
-	long int collatzLength;
-};
-
 int main()
 {
 	// A multimap is used to automatically sort the Collatz sequence lengths
@@ -66,7 +53,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const long long int maxIntToEvaluate = INT_MAX;
+	const long long int maxIntToEvaluate = 10000;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
