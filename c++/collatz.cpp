@@ -108,9 +108,11 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 	// specified number of longest Collatz sequence lengths to store and
 	// the lengths' respective integers
 
-	// Create a multimap iterator to view the final intended item in the
-	// multimap
+	// Create a multimap iterator and set the iterator to the Collatz
+	// sequence length multimap's beginning to view the smallest Collatz
+	// sequence length item in the multimap
 	multimap <long int, int> :: iterator collatzMapIterator;
+	collatzMapIterator = collatzLengthMap.begin();
 
 	// Evaluate integers from one to the maximum primitive integer value to
 	// determine the longest Collatz sequence lengths possible for the
@@ -134,18 +136,19 @@ void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
 		if (collatzLength > 0)
 		{
 			// Check the number of elements in the Collatz Length
-			// multimap and the to keep the specified number of 
+			// multimap to keep the specified number of 
 			// longest Collatz sequence length and integer pairs
 			if (collatzLengthMap.size() < collatzLengthsToStore)
 			{
 				collatzLengthMap.insert(pair<long int, int>(collatzLength,
 									    intToEvaluate));
 
+				/* TEST DISABLE
 				// If the Collatz sequence length multimap's size has become a size of one, set the Collatz sequence length multimap's iterator to the Collatz sequence length multimap's first item to delete the first map item as larger Collatz sizes are found
 				if (collatzLengthMap.size() == 1)
 				{
 					collatzMapIterator = collatzLengthMap.begin();
-				}
+				} */
 			}
 			else if (collatzLength > collatzMapIterator -> first)
 			{
