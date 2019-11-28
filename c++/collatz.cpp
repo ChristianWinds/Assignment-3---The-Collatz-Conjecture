@@ -10,25 +10,25 @@
 
 using namespace std;
 
-void storeCollatzInfo(multimap<long int, int> &collatzLengthMap,
+void storeCollatzInfo(multimap<long int, long int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
 		      int maxIntToEvaluate);
 int calculateCollatzLength(int integer,
 			   long int maxCollatzLength);
-void printByCollatzLengths(multimap<long int, int> collatzLengthMap,
+void printByCollatzLengths(multimap<long int, long int> collatzLengthMap,
 			   long int maxCollatzLength);
-void printByCollatzSequenceIntegers(multimap<long int, int> collatzLengthMap,
+void printByCollatzSequenceIntegers(multimap<long int, long int> collatzLengthMap,
 				    long int maxCollatzLength);
-void eraseFirstMultimapItem(multimap<long int, int> &multimapParameter);
-void printMultimapSortedByKeyValue(multimap<long int, int> multimapParameter,
+void eraseFirstMultimapItem(multimap<long int, long int> &multimapParameter);
+void printMultimapSortedByKeyValue(multimap<long int, long int> multimapParameter,
 				   const int separatorLength,
 				   int leftColumnWidth);
-void printMultimapSortedByMappedValue(multimap<long int, int> originalMultimap,
+void printMultimapSortedByMappedValue(multimap<long int, long int> originalMultimap,
 				      const int separatorLength,
 				      int leftColumnWidth);
-void sortByMappedValue(multimap<long int, int> originalMultimap,
-		       multimap<int, long int> &mappedValueSortedMap);
+void sortByMappedValue(multimap<long int, long int> originalMultimap,
+		       multimap<long int, long int> &mappedValueSortedMap);
 void printTwoColumnHeader(const string leftColumnName,
 			  const string rightColumnName,
 			  const string separator,
