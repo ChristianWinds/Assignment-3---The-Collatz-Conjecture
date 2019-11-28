@@ -10,34 +10,34 @@
 
 using namespace std;
 
-void storeCollatzInfo(multimap<long int, long int> &collatzLengthMap,
+void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
-		      long int maxIntToEvaluate);
-int calculateCollatzLength(long int integer,
+		      long long int maxIntToEvaluate);
+int calculateCollatzLength(long long int integer,
 			   long int maxCollatzLength);
-void printByCollatzLengths(multimap<long int, long int> collatzLengthMap,
+void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
 			   long int maxCollatzLength);
-void printByCollatzSequenceIntegers(multimap<long int, long int> collatzLengthMap,
+void printByCollatzSequenceIntegers(multimap<long int, long long int> collatzLengthMap,
 				    long int maxCollatzLength);
-void eraseFirstMultimapItem(multimap<long int, long int> &multimapParameter);
-void printMultimapSortedByKeyValue(multimap<long int, long int> multimapParameter,
+void eraseFirstMultimapItem(multimap<long int, long long int> &multimapParameter);
+void printMultimapSortedByKeyValue(multimap<long int, long long int> multimapParameter,
 				   const int separatorLength,
 				   int leftColumnWidth);
-void printMultimapSortedByMappedValue(multimap<long int, long int> originalMultimap,
+void printMultimapSortedByMappedValue(multimap<long int, long long int> originalMultimap,
 				      const int separatorLength,
 				      int leftColumnWidth);
-void sortByMappedValue(multimap<long int, long int> originalMultimap,
-		       multimap<long int, long int> &mappedValueSortedMap);
+void sortByMappedValue(multimap<long int, long long int> originalMultimap,
+		       multimap<long long int, long int> &mappedValueSortedMap);
 void printTwoColumnHeader(const string leftColumnName,
 			  const string rightColumnName,
 			  const string separator,
 			  int leftColumnWidth);
-void printTwoColumnIntegers(const long int leftInt,
-			    const long int rightInt,
+void printTwoColumnIntegers(const long long int leftInt,
+			    const long long int rightInt,
 			    const int separatorLength,
 			    int leftColumnWidth);
-string intToString(long int originalInt);
+string intToString(long long int originalInt);
 
 // This program employs a "CollatzInfo" class type to pair integers with the
 // integers' respective Collatz sequence lengths
