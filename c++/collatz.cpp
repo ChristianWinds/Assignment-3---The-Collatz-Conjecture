@@ -56,7 +56,7 @@ int main()
 {
 	// A multimap is used to automatically sort the Collatz sequence lengths
 	// in ascending order
-	multimap<long int, long int> collatzLengthMap;
+	multimap<long int, long long int> collatzLengthMap;
 
 	// Create an integer variable to determine the number of Collatz
 	// sequence lengths to store
