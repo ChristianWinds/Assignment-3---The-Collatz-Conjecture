@@ -14,7 +14,7 @@ void storeCollatzInfo(multimap<long int, long int> &collatzLengthMap,
 		      int collatzLengthsToStore,
 		      long int maxCollatzLength,
 		      int maxIntToEvaluate);
-int calculateCollatzLength(int integer,
+int calculateCollatzLength(long int integer,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, long int> collatzLengthMap,
 			   long int maxCollatzLength);
