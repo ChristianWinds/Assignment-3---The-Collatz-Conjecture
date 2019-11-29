@@ -8,6 +8,19 @@ public class Collatz
 	{
 		// Precondition:
 		// Postcondition:
+
+		for (int integer = 1;
+		     integer <= maxIntToEvaluate;
+		     integer++)
+		{
+			// End the Collatz sequence length calculations if the
+			// maximum specified integer of the integer calculation
+			// range was met to avoid an error
+			if (integer >= maxIntToEvaluate)
+			{
+				break;
+			}
+		}
 	}
 
 	public static void main()
