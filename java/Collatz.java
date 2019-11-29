@@ -39,10 +39,14 @@ public class Collatz
 		}
 	}
 
-	static void putInArraySortDescending (Pair <, Integer>, [] array)
+	static void putInArraySortDescending (Pair <Long, Long> collatzPair,
+					      Pair <Long, Long> [] collatzArray)
 	{
 		// Precondition:
 		// Postcondition:
+
+		// 
+		;
 	}
 
 	public static void main()
