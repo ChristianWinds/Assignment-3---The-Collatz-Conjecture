@@ -6,12 +6,13 @@ import javafx.util.Pair;
 
 public class Collatz
 {
-	static void storeCollatzInfo(int maxIntToEvaluate)
+	static void storeCollatzInfo(int collatzLengthsToStore,
+				     long maxIntToEvaluate)
 	{
 		// Precondition:
 		// Postcondition:
 
-		for (int integer = 1;
+		for (long integer = 1;
 		     integer <= maxIntToEvaluate;
 		     integer++)
 		{
@@ -36,6 +37,12 @@ public class Collatz
 				break;
 			}
 		}
+	}
+
+	static void putInArraySortDescending (Pair <, Integer>, [] array)
+	{
+		// Precondition:
+		// Postcondition:
 	}
 
 	public static void main()
