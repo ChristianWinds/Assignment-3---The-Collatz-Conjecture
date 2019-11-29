@@ -51,7 +51,7 @@ int main()
 
 	// Create an integer constant to determine the maximum permitted Collatz
 	// sequence length to store
-	const long int maxCollatzLength = 5000000000;
+	const long int maxCollatzLength = 5000000000LL;
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
@@ -104,6 +104,11 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
 	{
+		// Code from Dr. Pounds,
+		// http://anvil.cs.mercer.edu/winds_ct/assignment-3---the-collatz-conjecture/issues/3#note_3931
+		// Accessed Friday, November 29th, 2019
+		if ( intToEvaluate % 1000000 == 0 ) cout << "TEST: storeCollatzInfo: for loop: intToEvaluate == " << intToEvaluate << endl;
+
 		long int collatzLength = calculateCollatzLength(intToEvaluate,
 								maxCollatzLength);
 
