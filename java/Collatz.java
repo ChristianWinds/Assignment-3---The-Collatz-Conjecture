@@ -51,23 +51,39 @@ public class Collatz
 		}
 	}
 
-	static void putInDescendingArray (Pair <Long, Long> collatzPairToInsert,
-					  Pair <Long, Long> [] collatzArray)
+	// Code from GeeksforGeeks,
+	// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
+	// Accessed Saturday, November 30th, 2019
+	static void putPairInDescendingArray (Pair <Long, Long> pairToInsert,
+					      Pair <Long, Long> [] array,
+					      int pairsInArray,
+					      int arrayCapacity)
 	{
-		// Precondition:
+		// Precondition: The array this method receives holds at least
+		// one unused slot, that array is sorted in descending order by
+		// key value, this method's received quantity of pairs within
+		// the received array is a valid non-negative integer, and the
+		// pair to insert received by this method holds two valid Long
+		// type values
 		// Postcondition:
 
-		// Code from GeeksforGeeks,
-		// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
-		// Accessed Saturday, November 30th, 2019
-		int i;
+		// Retrieve the key of the pair to insert to determine where the
+		// pair to insert should be placed within the pair array
+		Long keyToInsert = pairToInsert.getKey();
 
-		for (i = n - 1;
-		     (i >= 0 && arr[i] > key);
-		     i--)
+		int arrayIndex;
+
+		for (arrayIndex = pairsInArray - 1;
+		     (arrayIndex >= 0 && array[arrayIndex].getKey() < keyToInsert);
+		     arrayIndex--)
 		{
-			;
+			// Shift the contents within the array to open a slot to
+			// place the pair to insert within the array in
+			// descending sorted order
+			array[arrayIndex + 1] = array[arrayIndex];
 		}
+
+		array[arrayIndex + 1] = pairToInsert;
 	}
 
 	public static void main()
