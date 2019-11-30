@@ -20,6 +20,10 @@ public class Collatz
 		     intToEvaluate <= maxIntToEvaluate;
 		     intToEvaluate++)
 		{
+			// Calculate the Collatz length of the current integer
+			// to evaluate to determine whether the current
+			// evaluated integer should be stored in the Collatz
+			// length array
 			long collatzLength = calculateCollatzLength(intToEvaluate,
 								    maxCollatzLength);
 
@@ -28,17 +32,24 @@ public class Collatz
 			// invalid Collatz sequence lengths
 			if (collatzLength > 0)
 			{
+				Pair<Long, Long> collatzPair = new Pair<>(collatzLength,
+									  intToEvaluate);
+
 				// Check the number of elements in the Collatz
 				// length array to retain only the specified
 				// quantity of longest Collatz sequence length
 				// and integer pairs
 				if (arrayQuantity < collatzLengthsToStore)
 				{
-					putInDescendingArray();
+					putPairInDescendingArray(collatzPair,
+								 collatzLengthArray,
+								 arrayQuantity);
+					arrayQuantity++;
 				}
 				else
 				{
-					putInDescendingFullArray();
+					putPairInDescendingFullArray(collatzPair,
+								     collatzLengthArray);
 				}
 
 			// End the Collatz sequence length calculations if the
@@ -49,6 +60,14 @@ public class Collatz
 				break;
 			}
 		}
+	}
+
+	static void putPairInDescendingFullArray()
+	{
+		// Precondition: The pair received by this method 
+		// Postcondition:
+
+		;
 	}
 
 	// Code from GeeksforGeeks,
