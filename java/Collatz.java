@@ -45,8 +45,17 @@ public class Collatz
 		// Precondition:
 		// Postcondition:
 
-		// 
-		;
+		// Code from GeeksforGeeks,
+		// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
+		// Accessed Saturday, November 30th, 2019
+		int i;
+
+		for (i = n - 1;
+		     (i >= 0 && arr[i] > key);
+		     i--)
+		{
+			;
+		}
 	}
 
 	public static void main()
