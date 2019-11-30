@@ -51,7 +51,7 @@ public class Collatz
 		}
 	}
 
-	static void putInDescendingArray (Pair <Long, Long> collatzPair,
+	static void putInDescendingArray (Pair <Long, Long> collatzPairToInsert,
 					  Pair <Long, Long> [] collatzArray)
 	{
 		// Precondition:
