@@ -186,7 +186,7 @@ int calculateCollatzLength(long long int integer,
 	// sequence length value to determine the calculations to perform and
 	// the value for this function to return
 	if ((integer == 1) &&
-	    (currentCollatzLength <= maxCollatzLength)
+	    (currentCollatzLength <= maxCollatzLength))
 	{
 		// Return the current Collatz sequence length to return the
 		// evaluated integer's complete Collatz sequence length to this
