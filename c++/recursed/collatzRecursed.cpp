@@ -172,29 +172,21 @@ int calculateCollatzLength(long long int integer,
 	// and from Christian Winds,
 	// /home/winds_ct/orgOfProgLanguagesCSC330/fortran/recursionInFortran/collatzSubroutineRecursion.f90
 	// Accessed Tuesday, December 3rd, 2019
+	// and from GeeksforGeeks,
+	// https://www.geeksforgeeks.org/recursion/
+	// Accessed Tuesday, December 3rd, 2019
 
 	// Stop the Collatz sequence calculations when the evaluated integer has
 	// a value of one to begin calculating the Collatz sequence's length
-	if ((integer != 1) &&
-	    (currentCollatzLength < maxCollatzLength))
+	if ((integer == 1) &&
+	    (currentCollatzLength <= maxCollatzLength)
 	{
-		// Check whether the integer is even or odd to determine which
-		// Collatz Conjecture operations should be performed
-		if (integer % 2 == 0)
-		{
-			currentCollatzLength++;
-			currentCollatzLength = calculateCollatzLength(integer / 2,
-								      currentCollatzLength,
-								      maxCollatzLength);
-		}
-		else
-		{
-			currentCollatzLength++;
-			currentCollatzLength = calculateCollatzLength(((integer * 3) + 1),
-								      currentCollatzLength,
-								      maxCollatzLength);
-		}
-
+		// If the evaluated integer is a value of one and the current
+		// Collatz sequence length is less than the maximum permitted
+		// Collatz sequence length, return the current Collatz sequence
+		// length to return the evaluated integer's complete Collatz
+		// sequence length to this function's original caller
+		return currentCollatzLength;
 	}
 	else if ((currentCollatzLength >= maxCollatzLength) &&
 		 (integer != 1))
@@ -206,8 +198,34 @@ int calculateCollatzLength(long long int integer,
 		// sequence length exceeds the permitted maximum Collatz
 		// sequence length
 		currentCollatzLength = -1;
+		return currentCollatzLength;
+	}
+	else if ((integer != 1) &&
+		 (currentCollatzLength < maxCollatzLength))
+	{
+		// Check whether the integer is even or odd to determine which
+		// Collatz Conjecture operations should be performed
+		if (integer % 2 == 0)
+		{
+			currentCollatzLength++;
+			currentCollatzLength = calculateCollatzLength(integer / 2,
+								      currentCollatzLength,
+								      maxCollatzLength);
+			return currentCollatzLength;
+		}
+		else
+		{
+			currentCollatzLength++;
+			currentCollatzLength = calculateCollatzLength(((integer * 3) + 1),
+								      currentCollatzLength,
+								      maxCollatzLength);
+			return currentCollatzLength;
+		}
 	}
 
+	// If a return was not performed in the previous Collatz sequence length
+	// calculation branches, return the current Collatz sequence length to
+	// this function's caller to avoid an error
 	return currentCollatzLength;
 }
 
