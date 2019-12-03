@@ -166,8 +166,6 @@ int calculateCollatzLength(long long int integer,
 	// the calculated Collatz sequence length exceeds the maximum Collatz
 	// sequence length parameter
 
-	long int collatzLength = 0;
-
 	// Code from Canvas,
 	// https://merceru.instructure.com/courses/37317/assignments/197601
 	// Accessed Tuesday, December 3rd, 2019 
@@ -175,38 +173,42 @@ int calculateCollatzLength(long long int integer,
 	// /home/winds_ct/orgOfProgLanguagesCSC330/fortran/recursionInFortran/collatzSubroutineRecursion.f90
 	// Accessed Tuesday, December 3rd, 2019
 
-	// Perform the Collatz Conjecture calculations upon the received integer
-	// until either the integer equals a value of one, or the Collatz
-	// sequence length exceeds the maximum permitted Collatz sequence length
-	do
+	// Stop the Collatz sequence calculations when the evaluated integer has
+	// a value of one to begin calculating the Collatz sequence's length
+	if ((integer != 1) &&
+	    (currentCollatzLength < maxCollatzLength))
 	{
 		// Check whether the integer is even or odd to determine which
 		// Collatz Conjecture operations should be performed
 		if (integer % 2 == 0)
 		{
-			calculateCollatzLength(integer / 2,
-					       maxCollatzLength);
+			currentCollatzLength++;
+			currentCollatzLength = calculateCollatzLength(integer / 2,
+								      currentCollatzLength,
+								      maxCollatzLength);
 		}
 		else
 		{
-			integer = (integer * 3) + 1;
+			currentCollatzLength++;
+			currentCollatzLength = calculateCollatzLength(((integer * 3) + 1),
+								      currentCollatzLength,
+								      maxCollatzLength);
 		}
 
-		collatzLength++;
-	} while ((integer != 1) &&
-		 (collatzLength < maxCollatzLength));
-
-	// If the calculated Collatz sequence length met the maximum permitted
-	// Collatz sequence length and the integer is not one, set the Collatz
-	// sequence length to negative one to indicate that the integer's
-	// Collatz sequence length exceeds the maximum permitted
-	if ((collatzLength >= maxCollatzLength) &&
-	    (integer != 1))
+	}
+	else if ((currentCollatzLength >= maxCollatzLength) &&
+		 (integer != 1))
 	{
-		collatzLength = -1;
+		// If the calculated Collatz sequence length met the maximum
+		// permitted Collatz sequence length and the evaluated integer
+		// is not one, set the current Collatz sequence length to
+		// negative one to indicate the evaluated integer's Collatz
+		// sequence length exceeds the permitted maximum Collatz
+		// sequence length
+		currentCollatzLength = -1;
 	}
 
-	return collatzLength;
+	return currentCollatzLength;
 }
 
 void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
