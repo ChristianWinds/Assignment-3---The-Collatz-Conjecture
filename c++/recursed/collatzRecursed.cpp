@@ -109,9 +109,9 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 		// prepare to calculate the integer's Collatz sequence length
 		long int collatzLength = 0;
 
-		long int collatzLength = calculateCollatzLength(intToEvaluate,
-								collatzLength,
-								maxCollatzLength);
+		collatzLength = calculateCollatzLength(intToEvaluate,
+						       collatzLength,
+						       maxCollatzLength);
 
 		// Check if the current integer's Collatz sequence length is
 		// greater than zero to prevent storage of invalid Collatz
@@ -158,12 +158,17 @@ int calculateCollatzLength(long long int integer,
 			   long int maxCollatzLength)
 {
 	// Precondition: This function's received integer to be evaluated and
-	// received maximum Collatz sequence length are valid positive integers
-	// Postcondition: The Collatz sequence length calculated for the
-	// received integer is returned to this function's caller if the length
-	// is less than or equal to the maximum Collatz sequence length
-	// parameter, or a negative one is returned to this function's caller if
-	// the calculated Collatz sequence length exceeds the maximum Collatz
+	// received maximum Collatz sequence length are valid positive integers,
+	// and this function's received current Collatz sequence length integer
+	// is either a valid non-negative integer or a value of negative one
+	// Postcondition: This function's received current Collatz sequence
+	// length integer for this function's received integer to evaluate is
+	// returned to this function's caller if both the integer to evaluate is
+	// a value of one and this function's received current Collatz sequence
+	// length is less than or equal to this function's received maximum
+	// Collatz sequence length parameter, or a negative one is returned to
+	// this function's caller if this function's received current Collatz
+	// sequence length exceeds this function's received maximum Collatz
 	// sequence length parameter
 
 	// Code from Canvas,
@@ -176,27 +181,24 @@ int calculateCollatzLength(long long int integer,
 	// https://www.geeksforgeeks.org/recursion/
 	// Accessed Tuesday, December 3rd, 2019
 
-	// Stop the Collatz sequence calculations when the evaluated integer has
-	// a value of one to begin calculating the Collatz sequence's length
+	// Check the value of the integer to evaluate and compare the current
+	// Collatz sequence length value to the maximum permitted Collatz
+	// sequence length value to determine the calculations to perform and
+	// the value for this function to return
 	if ((integer == 1) &&
 	    (currentCollatzLength <= maxCollatzLength)
 	{
-		// If the evaluated integer is a value of one and the current
-		// Collatz sequence length is less than the maximum permitted
-		// Collatz sequence length, return the current Collatz sequence
-		// length to return the evaluated integer's complete Collatz
-		// sequence length to this function's original caller
+		// Return the current Collatz sequence length to return the
+		// evaluated integer's complete Collatz sequence length to this
+		// function's original caller
 		return currentCollatzLength;
 	}
 	else if ((currentCollatzLength >= maxCollatzLength) &&
 		 (integer != 1))
 	{
-		// If the calculated Collatz sequence length met the maximum
-		// permitted Collatz sequence length and the evaluated integer
-		// is not one, set the current Collatz sequence length to
-		// negative one to indicate the evaluated integer's Collatz
-		// sequence length exceeds the permitted maximum Collatz
-		// sequence length
+		// Set the current Collatz sequence length to negative one to
+		// indicate the evaluated integer's Collatz sequence length
+		// exceeds the permitted maximum Collatz sequence length
 		currentCollatzLength = -1;
 		return currentCollatzLength;
 	}
