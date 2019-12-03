@@ -15,6 +15,7 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 		      long int maxCollatzLength,
 		      long long int maxIntToEvaluate);
 int calculateCollatzLength(long long int integer,
+			   long int currentCollatzLength,
 			   long int maxCollatzLength);
 void printByCollatzLengths(multimap<long int, long long int> collatzLengthMap,
 			   long int maxCollatzLength);
@@ -104,7 +105,12 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 	     intToEvaluate <= maxIntToEvaluate;
 	     intToEvaluate++)
 	{
+		// Initialize the current integer's Collatz sequence length to
+		// prepare to calculate the integer's Collatz sequence length
+		long int collatzLength = 0;
+
 		long int collatzLength = calculateCollatzLength(intToEvaluate,
+								collatzLength,
 								maxCollatzLength);
 
 		// Check if the current integer's Collatz sequence length is
@@ -148,6 +154,7 @@ void storeCollatzInfo(multimap<long int, long long int> &collatzLengthMap,
 }
 
 int calculateCollatzLength(long long int integer,
+			   long int currentCollatzLength,
 			   long int maxCollatzLength)
 {
 	// Precondition: This function's received integer to be evaluated and
@@ -177,7 +184,8 @@ int calculateCollatzLength(long long int integer,
 		// Collatz Conjecture operations should be performed
 		if (integer % 2 == 0)
 		{
-			integer = integer / 2;
+			calculateCollatzLength(integer / 2,
+					       maxCollatzLength);
 		}
 		else
 		{
