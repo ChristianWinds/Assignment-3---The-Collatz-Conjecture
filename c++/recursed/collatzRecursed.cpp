@@ -56,7 +56,7 @@ int main()
 
 	// Create an integer constant to designate the maximum integer to
 	// receive a Collatz sequence length calculation
-	const long long int maxIntToEvaluate = 10000;
+	const long long int maxIntToEvaluate = INT_MAX;
 
 	// Calculate the Collatz sequence lengths of the positive primitive
 	// integer range to determine the longest Collatz sequence lengths
@@ -171,10 +171,7 @@ int calculateCollatzLength(long long int integer,
 	// sequence length exceeds this function's received maximum Collatz
 	// sequence length parameter
 
-	// Code from Canvas,
-	// https://merceru.instructure.com/courses/37317/assignments/197601
-	// Accessed Tuesday, December 3rd, 2019 
-	// and from Christian Winds,
+	// Code from Christian Winds,
 	// /home/winds_ct/orgOfProgLanguagesCSC330/fortran/recursionInFortran/collatzSubroutineRecursion.f90
 	// Accessed Tuesday, December 3rd, 2019
 	// and from GeeksforGeeks,
