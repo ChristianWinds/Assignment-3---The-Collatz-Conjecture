@@ -62,7 +62,7 @@ public class Collatz
 		}
 	}
 
-	static void putPairInDescendingFullArray()
+	static void putPairInDescendingFullArray(Pair <Long, Long> pairToInsert)
 	{
 		// Precondition: The pair received by this method holds two
 		// valid long integers, and the array received by this method is
@@ -80,7 +80,96 @@ public class Collatz
 		// the array if this method's received parameter pair is added
 		// to the array.
 
-		;
+		// Retrieve the key of the pair to insert to determine where the
+		// pair to insert should be placed within the pair array
+		Long keyToInsert = pairToInsert.getKey();
+
+		// Check if the key to insert is greater than or equal to the
+		// lowest key in the received array to determine whether to
+		// insert the received parameter pair into the array
+		Long smallestArrayKey = array[arrayCapacity].getKey();
+
+		boolean addNewPair = false;
+
+		if (keyToInsert > smallestArrayKey)
+		{
+			addNewPair = true;
+		}
+		else if (keyToInsert == smallestArrayKey)
+		{
+			if (pairValueToInsert < lastArrayPairValue)
+			{
+				addNewPair = true;
+			}
+			else
+			{
+				addNewPair = false;
+			}
+		}
+
+		if (addNewPair)
+		{
+			// Code from GeeksforGeeks,
+			// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
+			// Accessed Wednesday, December 4th, 2019
+
+			// Parse the array to determine where the parameter pair
+			// should be added
+			int currentArrayIndex;
+			int firstIndexOfArray = 0;
+
+			for (currentArrayIndex = arrayCapacity - 1;
+			     currentArrayIndex > firstIndexOfArray;
+			     currentArrayIndex--)
+			{
+				// Compare the key to insert to the next latest
+				// unchecked array key to determine how to
+				// rearrange the array contents
+				int nextArrayIndex = currentArrayIndex - 1;
+				Long nextKeyInArray = array[nextArrayIndex].getKey();
+
+				if (keyToInsert > nextKeyInArray)
+				{
+					// Shift the array's contents to create
+					// a space for the upcoming pair
+					// insertion
+					array[currentArrayIndex] = array[nextArrayIndex];
+				}
+				else if (keyToInsert < nextKeyInArray)
+				{
+					// Insert the parameter pair to place
+					// the pair in the correct sorted
+					// location in the array
+					array[currentArrayIndex] = pairToInsert;
+
+					// Leave the for loop to end the
+					// insertion location search
+					break;
+				}
+				else if (keyToInsert == nextKeyInArray)
+				{
+					// Compare the pair values of the pair
+					// to insert and the next pair of the
+					// array to determine where the
+					// parameter pair should be placed in
+					// the array
+					Long pairValueToInsert = ;
+					Long nextPairValueInArray = ;
+
+					if (pairValueToInsert > nextPairValueInArray)
+					;
+				}
+			}
+
+			// If the first array slot was reached in the array
+			// parsing, insert the parameter pair at the beginning
+			// of the array to place the pair in the correct sorted
+			// position in the array
+			if (arrayIndex == firstindexOfArray)
+			{
+				array[firstIndexOfArray] = pairToInsert;
+			}
+		}
 	}
 
 	// Code from GeeksforGeeks,
