@@ -62,7 +62,8 @@ public class Collatz
 		}
 	}
 
-	static void putPairInDescendingFullArray(Pair <Long, Long> pairToInsert)
+	static void putPairInDescendingFullArray(Pair <Long, Long> pairToInsert,
+						 Pair <Long, Long> [] array)
 	{
 		// Precondition: The pair received by this method holds two
 		// valid long integers, and the array received by this method is
@@ -84,12 +85,15 @@ public class Collatz
 		// pair to insert should be placed within the pair array
 		Long keyToInsert = pairToInsert.getKey();
 
+		// Create a Boolean variable to flag whether to attempt
+		// inserting the parameter pair into the array
+		boolean addNewPair = false;
+
 		// Check if the key to insert is greater than or equal to the
 		// lowest key in the received array to determine whether to
 		// insert the received parameter pair into the array
-		Long smallestArrayKey = array[arrayCapacity].getKey();
-
-		boolean addNewPair = false;
+		int lastArrayIndex = arrayCapacity - 1;
+		Long smallestArrayKey = array[lastArrayIndex].getKey();
 
 		if (keyToInsert > smallestArrayKey)
 		{
@@ -97,11 +101,16 @@ public class Collatz
 		}
 		else if (keyToInsert == smallestArrayKey)
 		{
+			// Compare the pair values of the parameter pair and the
+			// final array pair to determine whether to insert the
+			// parameter pair into the array
+			Long lastArrayPairValue = array[lastArrayIndex].getValue();
+
 			if (pairValueToInsert < lastArrayPairValue)
 			{
 				addNewPair = true;
 			}
-			else
+			else if (pairValueToInsert >= lastArrayPairValue)
 			{
 				addNewPair = false;
 			}
@@ -116,10 +125,10 @@ public class Collatz
 			// Parse the array to determine where the parameter pair
 			// should be added
 			int currentArrayIndex;
-			int firstIndexOfArray = 0;
+			int firstArrayIndex = 0;
 
-			for (currentArrayIndex = arrayCapacity - 1;
-			     currentArrayIndex > firstIndexOfArray;
+			for (currentArrayIndex = lastArrayIndex;
+			     currentArrayIndex > firstArrayIndex;
 			     currentArrayIndex--)
 			{
 				// Compare the key to insert to the next latest
@@ -153,11 +162,36 @@ public class Collatz
 					// array to determine where the
 					// parameter pair should be placed in
 					// the array
-					Long pairValueToInsert = ;
-					Long nextPairValueInArray = ;
+					Long pairValueToInsert = pairToInsert.getValue();
+					Long nextPairValueInArray = array[nextArrayIndex].getValue();
 
 					if (pairValueToInsert > nextPairValueInArray)
-					;
+					{
+						// Shift the array's contents to
+						// create a space for the
+						// upcoming pair insertion
+						array[currentArrayIndex] = array[nextArrayIndex];
+					}
+					else if (pairValueToInsert < nextPairValueInArray)
+					{
+						// Insert the parameter pair to
+						// place the pair in the correct
+						// sorted location in the array
+						array[currentArrayIndex] = pairToInsert;
+
+						// Leave the for loop to end the
+						// insertion location search
+						break;
+					}
+					else if (pairValueToInsert == nextPairValueInArray)
+					{
+						// Stop attempting to place the
+						// parameter pair in the array
+						// to avoid storing a duplicate
+						// pair in the array
+						addNewPair = false;
+						break;
+					}
 				}
 			}
 
@@ -165,9 +199,10 @@ public class Collatz
 			// parsing, insert the parameter pair at the beginning
 			// of the array to place the pair in the correct sorted
 			// position in the array
-			if (arrayIndex == firstindexOfArray)
+			if ((arrayIndex == firstindexOfArray) &&
+			    (addNewPair))
 			{
-				array[firstIndexOfArray] = pairToInsert;
+				array[firstArrayIndex] = pairToInsert;
 			}
 		}
 	}
