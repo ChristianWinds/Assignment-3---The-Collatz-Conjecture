@@ -64,8 +64,21 @@ public class Collatz
 
 	static void putPairInDescendingFullArray()
 	{
-		// Precondition: The pair received by this method holds two valid long integers, and the array received by this method is sorted in descending order by pair key value 
-		// Postcondition: The pair received by this method is inserted into this method's received array in descending sort order by key, then by pair value if that pair has a key greater than or equal to the lowest key stored in this method's received array, and if the 
+		// Precondition: The pair received by this method holds two
+		// valid long integers, and the array received by this method is
+		// sorted in descending order by pair key value 
+		// Postcondition: The pair received by this method is inserted
+		// into this method's received array in descending sort order by
+		// key, then by pair value if that pair has a key greater than
+		// or equal to the lowest key stored in this method's received
+		// array. If the pair this method received has a key matching
+		// the key of the last item in this function's received array,
+		// this method's parameter pair is only inserted into this
+		// method's parameter array if the parameter pair's pair value
+		// is less than the pair value of the array's last item. The
+		// last item of this method's parameter array is removed from
+		// the array if this method's received parameter pair is added
+		// to the array.
 
 		;
 	}
