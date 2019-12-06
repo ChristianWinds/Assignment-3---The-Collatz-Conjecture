@@ -2,8 +2,6 @@
  * Course: CSC 330 Organization of Programming Languages
  * School Year: 2019-2020 School Year */
 
-import javafx.util.Pair;
-
 public class Collatz
 {
 	static void storeCollatzInfo(int collatzLengthsToStore,
