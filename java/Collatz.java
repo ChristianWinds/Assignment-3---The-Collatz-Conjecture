@@ -51,6 +51,7 @@ public class Collatz
 					putPairInDescendingFullArray(collatzPair,
 								     collatzLengthArray);
 				}
+			}
 
 			// End the Collatz sequence length calculations if the
 			// maximum specified integer of the integer calculation
