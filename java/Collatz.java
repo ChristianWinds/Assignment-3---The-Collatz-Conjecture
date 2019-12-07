@@ -297,7 +297,7 @@ public class Collatz
 		array[arrayIndex + 1] = pairToInsert;
 	}
 
-	public static void main()
+	public static void Main()
 	{
 		// Create an integer variable to determine the number of Collatz
 		// sequence lengths to store
