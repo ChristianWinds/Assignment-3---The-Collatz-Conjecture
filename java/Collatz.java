@@ -7,8 +7,7 @@ public class Collatz
 	static void storeCollatzInfo(int collatzLengthsToStore,
 				     long maxIntToEvaluate,
 				     long maxCollatzLength,
-				     CollatzInfo [] collatzLengthArray,
-				     int arrayCapacity)
+				     CollatzInfo [] collatzLengthArray)
 	{
 		// Precondition:
 		// Postcondition:
@@ -45,7 +44,7 @@ public class Collatz
 					putPairInDescendingArray(collatzPair,
 								 collatzLengthArray,
 								 arrayQuantity,
-								 arrayCapacity);
+								 collatzLengthsToStore);
 					arrayQuantity++;
 				}
 				else
@@ -316,7 +315,6 @@ public class Collatz
 		storeCollatzInfo(collatzLengthsToStore,
 				 maxIntToEvaluate,
 				 maxCollatzLength,
-				 collatzLengthArray,
-				 arrayCapacity);
+				 collatzLengthArray);
 	}
 }
