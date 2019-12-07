@@ -1,3 +1,7 @@
+# Programmer: Christian Winds
+# Course: CSC 330 Organization of Programming Languages
+# School Year: 2019-2020 School Year
+
 # Assignment 3 - The Collatz Conjecture
 
 C++ non-recursion compilation instructions: Enter "c++ collatz.cpp" on the
