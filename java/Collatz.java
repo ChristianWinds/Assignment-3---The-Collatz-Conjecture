@@ -167,9 +167,10 @@ public class Collatz
 		}
 		else if (lengthToInsert == smallestArrayCollatzLength)
 		{
-			// Compare the pair values of the parameter pair and the
-			// final array pair to determine whether to insert the
-			// parameter pair into the array
+			// Compare the Collatz sequence integers of the
+			// parameter Collatz info object and the final array
+			// Collatz info object to determine whether to insert the
+			// parameter Collatz info object into the array
 			long lastArrayIntegerValue = array[lastArrayIndex].integer;
 			long integerToInsert = pairToInsert.integer;
 
@@ -189,8 +190,8 @@ public class Collatz
 			// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
 			// Accessed Wednesday, December 4th, 2019
 
-			// Parse the array to determine where the parameter pair
-			// should be added
+			// Parse the array to determine where the parameter
+			// Collatz info object should be added
 			int currentArrayIndex;
 			int firstArrayIndex = 0;
 
@@ -207,15 +208,16 @@ public class Collatz
 				if (lengthToInsert > nextCollatzLengthInArray)
 				{
 					// Shift the array's contents to create
-					// a space for the upcoming pair
+					// a space for the upcoming Collatz info object
 					// insertion
 					array[currentArrayIndex] = array[nextArrayIndex];
 				}
 				else if (lengthToInsert < nextCollatzLengthInArray)
 				{
-					// Insert the parameter pair to place
-					// the pair in the correct sorted
-					// location in the array
+					// Insert the parameter Collatz info
+					// object to place the Collatz info
+					// object in the correct sorted location
+					// in the array
 					array[currentArrayIndex] = pairToInsert;
 
 					// Leave the for loop to end the
