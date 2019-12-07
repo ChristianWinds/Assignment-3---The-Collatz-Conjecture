@@ -9,6 +9,12 @@ public class CollatzInfo
 	public CollatzInfo(long collatzLength,
 			   long integer)
 	{
+		// Precondition: This method's received Collatz sequence length
+		// and Collatz sequence integer long integers are valid positive
+		// long integers
+		// Postcondition: The Collatz info object holds this method's
+		// received Collatz sequence length and Collatz sequence integer
+		// long integers
 		collatzLength = this.collatzLength;
 		integer = this.integer;
 	}
