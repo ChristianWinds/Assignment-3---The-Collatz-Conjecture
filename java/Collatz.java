@@ -310,8 +310,8 @@ public class Collatz
 		long maxCollatzLength = 5000000000L;
 
 		// Create a long variable to designate the maximum integer to
-		// receive a Collatz sequence length calculation
-		long maxIntToEvaluate = Long.MAX_VALUE;
+		// receive a Collatz sequence length calculation == Long.MAX_VALUE
+		long maxIntToEvaluate = 10;
 
 		// Calculate the Collatz sequence lengths of the positive
 		// primitive integer range to determine the longest Collatz
