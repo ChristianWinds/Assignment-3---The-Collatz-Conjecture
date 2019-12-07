@@ -9,11 +9,14 @@ public class Collatz
 				     long maxCollatzLength,
 				     CollatzInfo [] collatzLengthArray)
 	{
-		// Precondition: The integer of Collatz sequence lengths to
-		// store and the long integers of the maximum integer to
+		// Precondition: The reeived integer of Collatz sequence lengths
+		// to store and the long integers of the maximum integer to
 		// evaluate and maximum Collatz sequence length are valid
-		// positive integers
-		// Postcondition:
+		// positive integers, and the received Collatz sequence length
+		// array is empty
+		// Postcondition: The received Collatz sequence length array is
+		// filled with the specified quantity of Collatz sequence
+		// lengths sorted in descending order
 
 		// Create an integer variable to track the number of items in
 		// the Collatz length array
@@ -121,33 +124,40 @@ public class Collatz
 						 CollatzInfo [] array,
 						 int arrayCapacity)
 	{
-		// Precondition: The pair received by this method holds two
-		// valid long integers, and the array received by this method is
-		// sorted in descending order by pair key value 
-		// Postcondition: The pair received by this method is inserted
-		// into this method's received array in descending sort order by
-		// key, then by pair value if that pair has a key greater than
-		// or equal to the lowest key stored in this method's received
-		// array. If the pair this method received has a key matching
-		// the key of the last item in this function's received array,
-		// this method's parameter pair is only inserted into this
-		// method's parameter array if the parameter pair's pair value
-		// is less than the pair value of the array's last item. The
+		// Precondition: The Collatz info object received by this method
+		// holds two valid long integers, and the array received by this
+		// method is sorted in descending order primarily by Collatz
+		// sequence length, and secondarily by Collatz sequence integer
+		// Postcondition: The Collatz info object received by this
+		// method is inserted into this method's received array in
+		// descending sort order by Collatz sequence length, then by
+		// Collatz sequence integer if that Collatz info object has a
+		// Collatz sequence length greater than or equal to the lowest
+		// Collatz sequence length stored in this method's received
+		// array. If the pair this method received has a Collatz
+		// sequence length matching the Collatz sequence length of the
+		// last item in this function's received array, this method's
+		// parameter Collatz info object is only inserted into this
+		// method's parameter array if the parameter Collatz info
+		// object's Collatz sequence integer value is less than the
+		// Collatz sequence integer value of the array's last item. The
 		// last item of this method's parameter array is removed from
-		// the array if this method's received parameter pair is added
-		// to the array.
+		// the array if this method's received parameter Collatz info
+		// object is added to the array.
 
-		// Retrieve the key of the pair to insert to determine where the
-		// pair to insert should be placed within the pair array
+		// Retrieve the Collatz sequence length of the pair to insert to
+		// determine where the pair to insert should be placed within
+		// the pair array
 		long lengthToInsert = pairToInsert.collatzLength;
 
 		// Create a Boolean variable to flag whether to attempt
 		// inserting the parameter pair into the array
 		boolean addNewPair = false;
 
-		// Check if the key to insert is greater than or equal to the
-		// lowest key in the received array to determine whether to
-		// insert the received parameter pair into the array
+		// Check if the Collatz sequence length to insert is greater
+		// than or equal to the lowest Collatz sequence length in the
+		// received array to determine whether to insert the received
+		// parameter Collatz info object into the array
 		int lastArrayIndex = arrayCapacity - 1;
 		Long smallestArrayCollatzLength = array[lastArrayIndex].collatzLength;
 
