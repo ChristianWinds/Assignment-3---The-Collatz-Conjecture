@@ -62,8 +62,54 @@ public class Collatz
 		}
 	}
 
-	static long calculateCollatzLength(intToEvaluate,
-					   maxCollatzLength)
+	static long calculateCollatzLength(long intToEvaluate,
+					   long maxCollatzLength)
+	{
+		// Precondition: The integer to evaluate and maximum Collatz
+		// sequence length received by this function are valid long
+		// integers
+		// Postcondition: This function delivered the evaluated
+		// integer's Collatz sequence length to this function's caller
+		// if the sequence length is less than or equal to the maximum
+		// permitted Collatz sequence length, or a negative one is
+		// returned to this function's caller if the evaluated integer's
+		// sequence length exceeds the maximum permitted sequence length
+
+		long collatzLength = 0;
+
+		// Perform the Collatz Conjecture calculations upon the received
+		// integer until either the integer equals a value of one, or
+		// the Collatz sequence length exceeds the maximum permitted
+		// Collatz sequence length
+		do
+		{
+			// Check whether the integer is even or odd to determine
+			// which Collatz Conjecture operations should be
+			// performed
+			if (intToEvaluate % 2 == 0)
+			{
+				intToEvaluate = intToEvaluate / 2;
+			}
+			else
+			{
+				intToEvaluate = (intToEvaluate * 3) + 1;
+			}
+		} while ((intToEvaluate != 1) &&
+			 (collatzLength < maxCollatzLength));
+
+		// If the calculated Collatz sequence length met the maximum
+		// permitted Collatz sequence length and the integer is not one,
+		// set the Collatz sequence length to negative one to indicate
+		// that the integer's Collatz sequence length exceeds the
+		// maximum permitted sequence length
+		if ((collatzLength >= maxCollatzLength) &&
+		    (intToEvaluate != 1))
+		{
+			collatzLength = -1;
+		}
+
+		return collatzLength;
+	}
 
 	static void putPairInDescendingFullArray(CollatzInfo pairToInsert,
 						 CollatzInfo [] array)
