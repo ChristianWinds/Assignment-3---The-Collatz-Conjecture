@@ -289,7 +289,9 @@ public class Collatz
 		// the received array is a valid non-negative integer, and the
 		// pair to insert received by this method holds two valid Long
 		// type values
-		// Postcondition:
+		// Postcondition: The Collatz info object received by this
+		// function is inserted into this function's received array if
+		// the object does not have a duplicate in the array.
 
 		// Retrieve the key of the pair to insert to determine where the
 		// pair to insert should be placed within the pair array
