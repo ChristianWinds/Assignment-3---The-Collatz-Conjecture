@@ -5,7 +5,8 @@
 public class Collatz
 {
 	static void storeCollatzInfo(int collatzLengthsToStore,
-				     long maxIntToEvaluate)
+				     long maxIntToEvaluate,
+				     long maxCollatzLength)
 	{
 		// Precondition:
 		// Postcondition:
@@ -260,6 +261,8 @@ public class Collatz
 		// Calculate the Collatz sequence lengths of the positive
 		// primitive integer range to determine the longest Collatz
 		// sequence lengths
-		storeCollatzInfo();
+		storeCollatzInfo(collatzLengthsToStore,
+				 maxIntToEvaluate,
+				 maxCollatzLength);
 	}
 }
