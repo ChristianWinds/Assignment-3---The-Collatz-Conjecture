@@ -62,6 +62,9 @@ public class Collatz
 		}
 	}
 
+	static long calculateCollatzLength(intToEvaluate,
+					   maxCollatzLength)
+
 	static void putPairInDescendingFullArray(CollatzInfo pairToInsert,
 						 CollatzInfo [] array)
 	{
