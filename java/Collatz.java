@@ -146,13 +146,13 @@ public class Collatz
 		// lowest key in the received array to determine whether to
 		// insert the received parameter pair into the array
 		int lastArrayIndex = arrayCapacity - 1;
-		Long smallestArrayKey = array[lastArrayIndex].getKey();
+		Long smallestArrayCollatzLength = array[lastArrayIndex].collatzLength;
 
-		if (lengthToInsert > smallestArrayKey)
+		if (lengthToInsert > smallestArrayCollatzLength)
 		{
 			addNewPair = true;
 		}
-		else if (lengthToInsert == smallestArrayKey)
+		else if (lengthToInsert == smallestArrayCollatzLength)
 		{
 			// Compare the pair values of the parameter pair and the
 			// final array pair to determine whether to insert the
