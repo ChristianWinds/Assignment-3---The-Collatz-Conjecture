@@ -57,7 +57,7 @@ public class Collatz
 			// End the Collatz sequence length calculations if the
 			// maximum specified integer of the integer calculation
 			// range was met to avoid an error
-			if (integer >= maxIntToEvaluate)
+			if (intToEvaluate >= maxIntToEvaluate)
 			{
 				break;
 			}
