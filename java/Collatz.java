@@ -9,7 +9,10 @@ public class Collatz
 				     long maxCollatzLength,
 				     CollatzInfo [] collatzLengthArray)
 	{
-		// Precondition:
+		// Precondition: The integer of Collatz sequence lengths to
+		// store and the long integers of the maximum integer to
+		// evaluate and maximum Collatz sequence length are valid
+		// positive integers
 		// Postcondition:
 
 		// Create an integer variable to track the number of items in
