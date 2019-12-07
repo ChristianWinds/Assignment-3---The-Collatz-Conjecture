@@ -61,8 +61,8 @@ public class Collatz
 		}
 	}
 
-	static void putPairInDescendingFullArray(Pair <Long, Long> pairToInsert,
-						 Pair <Long, Long> [] array)
+	static void putPairInDescendingFullArray(CollatzInfo pairToInsert,
+						 CollatzInfo [] array)
 	{
 		// Precondition: The pair received by this method holds two
 		// valid long integers, and the array received by this method is
@@ -209,8 +209,8 @@ public class Collatz
 	// Code from GeeksforGeeks,
 	// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
 	// Accessed Saturday, November 30th, 2019
-	static void putPairInDescendingArray (Pair <Long, Long> pairToInsert,
-					      Pair <Long, Long> [] array,
+	static void putPairInDescendingArray (CollatzInfo pairToInsert,
+					      CollatzInfo [] array,
 					      int pairsInArray,
 					      int arrayCapacity)
 	{
@@ -247,7 +247,7 @@ public class Collatz
 		// sequence lengths to store
 		int collatzLengthsToStore = 10;
 
-		Pair <Long, Long> [] collatzLengthArray = new Pair <Long, Long>[collatzLengthsToStore];
+		CollatzInfo [] collatzLengthArray = new CollatzInfo[collatzLengthsToStore];
 
 		// Create a long variable to determine the maximum permitted
 		// Collatz sequence length to store
