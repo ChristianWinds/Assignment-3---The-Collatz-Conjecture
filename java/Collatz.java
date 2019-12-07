@@ -269,9 +269,9 @@ public class Collatz
 			}
 
 			// If the first array slot was reached in the array
-			// parsing, insert the parameter pair at the beginning
-			// of the array to place the pair in the correct sorted
-			// position in the array
+			// parsing, insert the parameter Collatz info object at
+			// the beginning of the array to place the Collatz info
+			// object in the correct sorted position in the array
 			int firstIndexOfArray = 0;
 			if ((currentArrayIndex == firstIndexOfArray) &&
 			    (addNewPair))
@@ -300,8 +300,9 @@ public class Collatz
 		// function is inserted into this function's received array if
 		// the object does not have a duplicate in the array.
 
-		// Retrieve the key of the pair to insert to determine where the
-		// pair to insert should be placed within the pair array
+		// Retrieve the Collatz sequence length of the Collatz info
+		// object to insert to determine where the Collatz info object
+		// to insert should be placed within the Collatz length array
 		long lengthToInsert = pairToInsert.collatzLength;
 
 		int arrayIndex;
@@ -311,8 +312,8 @@ public class Collatz
 		     arrayIndex--)
 		{
 			// Shift the contents within the array to open a slot to
-			// place the pair to insert within the array in
-			// descending sorted order
+			// place the Collatz info object to insert within the
+			// array in descending sorted order
 			array[arrayIndex + 1] = array[arrayIndex];
 		}
 
