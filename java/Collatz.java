@@ -50,7 +50,8 @@ public class Collatz
 				else
 				{
 					putPairInDescendingFullArray(collatzPair,
-								     collatzLengthArray);
+								     collatzLengthArray,
+								     collatzLengthsToStore);
 				}
 			}
 
@@ -114,7 +115,8 @@ public class Collatz
 	}
 
 	static void putPairInDescendingFullArray(CollatzInfo pairToInsert,
-						 CollatzInfo [] array)
+						 CollatzInfo [] array,
+						 int arrayCapacity)
 	{
 		// Precondition: The pair received by this method holds two
 		// valid long integers, and the array received by this method is
