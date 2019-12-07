@@ -145,13 +145,13 @@ public class Collatz
 		// the array if this method's received parameter Collatz info
 		// object is added to the array.
 
-		// Retrieve the Collatz sequence length of the pair to insert to
-		// determine where the pair to insert should be placed within
-		// the pair array
+		// Retrieve the Collatz sequence length of the Collatz info
+		// object to insert to determine where the Collatz info object
+		// to insert should be placed within the Collatz length array
 		long lengthToInsert = pairToInsert.collatzLength;
 
 		// Create a Boolean variable to flag whether to attempt
-		// inserting the parameter pair into the array
+		// inserting the parameter Collatz info object into the array
 		boolean addNewPair = false;
 
 		// Check if the Collatz sequence length to insert is greater
