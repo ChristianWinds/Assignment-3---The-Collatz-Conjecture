@@ -30,7 +30,7 @@ public class Collatz
 			// invalid Collatz sequence lengths
 			if (collatzLength > 0)
 			{
-				CollatzInfo collatzPair = new collatzInfo(collatzLength,
+				CollatzInfo collatzPair = new CollatzInfo(collatzLength,
 									  intToEvaluate);
 
 				// Check the number of elements in the Collatz
