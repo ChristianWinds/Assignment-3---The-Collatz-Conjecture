@@ -7,7 +7,8 @@ public class Collatz
 	static void storeCollatzInfo(int collatzLengthsToStore,
 				     long maxIntToEvaluate,
 				     long maxCollatzLength,
-				     CollatzInfo [] collatzLengthArray)
+				     CollatzInfo [] collatzLengthArray,
+				     int arrayCapacity)
 	{
 		// Precondition:
 		// Postcondition:
@@ -43,7 +44,8 @@ public class Collatz
 				{
 					putPairInDescendingArray(collatzPair,
 								 collatzLengthArray,
-								 arrayQuantity);
+								 arrayQuantity,
+								 arrayCapacity);
 					arrayQuantity++;
 				}
 				else
@@ -260,10 +262,10 @@ public class Collatz
 	// Code from GeeksforGeeks,
 	// https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/
 	// Accessed Saturday, November 30th, 2019
-	static void putPairInDescendingArray (CollatzInfo pairToInsert,
-					      CollatzInfo [] array,
-					      int pairsInArray,
-					      int arrayCapacity)
+	static void putPairInDescendingArray(CollatzInfo pairToInsert,
+					     CollatzInfo [] array,
+					     int pairsInArray,
+					     int arrayCapacity)
 	{
 		// Precondition: The array this method receives holds at least
 		// one unused slot, that array is sorted in descending order by
@@ -314,6 +316,7 @@ public class Collatz
 		storeCollatzInfo(collatzLengthsToStore,
 				 maxIntToEvaluate,
 				 maxCollatzLength,
-				 collatzLengthArray);
+				 collatzLengthArray,
+				 arrayCapacity);
 	}
 }
