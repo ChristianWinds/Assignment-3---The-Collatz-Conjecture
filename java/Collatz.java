@@ -134,7 +134,7 @@ public class Collatz
 
 		// Retrieve the key of the pair to insert to determine where the
 		// pair to insert should be placed within the pair array
-		Long keyToInsert = pairToInsert.getKey();
+		long lengthToInsert = pairToInsert.collatzLength;
 
 		// Create a Boolean variable to flag whether to attempt
 		// inserting the parameter pair into the array
@@ -146,16 +146,16 @@ public class Collatz
 		int lastArrayIndex = arrayCapacity - 1;
 		Long smallestArrayKey = array[lastArrayIndex].getKey();
 
-		if (keyToInsert > smallestArrayKey)
+		if (lengthToInsert > smallestArrayKey)
 		{
 			addNewPair = true;
 		}
-		else if (keyToInsert == smallestArrayKey)
+		else if (lengthToInsert == smallestArrayKey)
 		{
 			// Compare the pair values of the parameter pair and the
 			// final array pair to determine whether to insert the
 			// parameter pair into the array
-			Long lastArrayPairValue = array[lastArrayIndex].getValue();
+			long lastArrayPairValue = pairToInsert.integer;
 
 			if (pairValueToInsert < lastArrayPairValue)
 			{
@@ -188,14 +188,14 @@ public class Collatz
 				int nextArrayIndex = currentArrayIndex - 1;
 				Long nextKeyInArray = array[nextArrayIndex].getKey();
 
-				if (keyToInsert > nextKeyInArray)
+				if (lengthToInsert > nextKeyInArray)
 				{
 					// Shift the array's contents to create
 					// a space for the upcoming pair
 					// insertion
 					array[currentArrayIndex] = array[nextArrayIndex];
 				}
-				else if (keyToInsert < nextKeyInArray)
+				else if (lengthToInsert < nextKeyInArray)
 				{
 					// Insert the parameter pair to place
 					// the pair in the correct sorted
@@ -206,7 +206,7 @@ public class Collatz
 					// insertion location search
 					break;
 				}
-				else if (keyToInsert == nextKeyInArray)
+				else if (lengthToInsert == nextKeyInArray)
 				{
 					// Compare the pair values of the pair
 					// to insert and the next pair of the
@@ -276,12 +276,12 @@ public class Collatz
 
 		// Retrieve the key of the pair to insert to determine where the
 		// pair to insert should be placed within the pair array
-		Long keyToInsert = pairToInsert.getKey();
+		long lengthToInsert = pairToInsert.collatzLength;
 
 		int arrayIndex;
 
 		for (arrayIndex = pairsInArray - 1;
-		     (arrayIndex >= 0 && array[arrayIndex].getKey() < keyToInsert);
+		     (arrayIndex >= 0 && array[arrayIndex].collatzLength < lengthToInsert);
 		     arrayIndex--)
 		{
 			// Shift the contents within the array to open a slot to
