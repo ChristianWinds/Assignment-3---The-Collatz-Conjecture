@@ -5,4 +5,11 @@ public class CollatzInfo
 {
 	long collatzLength;
 	long integer;
+
+	public CollatzInfo(long collatzLength,
+			   long integer)
+	{
+		collatzLength = this.collatzLength;
+		integer = this.integer;
+	}
 }
