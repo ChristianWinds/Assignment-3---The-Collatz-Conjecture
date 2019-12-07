@@ -253,6 +253,7 @@ public class Collatz
 			// parsing, insert the parameter pair at the beginning
 			// of the array to place the pair in the correct sorted
 			// position in the array
+			int firstIndexOfArray = 0;
 			if ((currentArrayIndex == firstIndexOfArray) &&
 			    (addNewPair))
 			{
