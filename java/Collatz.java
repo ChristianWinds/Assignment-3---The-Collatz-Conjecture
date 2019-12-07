@@ -284,11 +284,12 @@ public class Collatz
 					     int arrayCapacity)
 	{
 		// Precondition: The array this method receives holds at least
-		// one unused slot, that array is sorted in descending order by
-		// key value, this method's received quantity of pairs within
-		// the received array is a valid non-negative integer, and the
-		// pair to insert received by this method holds two valid Long
-		// type values
+		// one unused slot, that array is sorted in descending order
+		// primarily by Collatz sequence length and secondarily by
+		// Collatz sequence integer value, this method's received
+		// quantity of Collatz info objects within the received array is
+		// a valid non-negative integer, and the Collatz info object to
+		// insert received by this method holds two valid long type values
 		// Postcondition: The Collatz info object received by this
 		// function is inserted into this function's received array if
 		// the object does not have a duplicate in the array.
