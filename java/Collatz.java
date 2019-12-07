@@ -189,16 +189,16 @@ public class Collatz
 				// unchecked array key to determine how to
 				// rearrange the array contents
 				int nextArrayIndex = currentArrayIndex - 1;
-				Long nextKeyInArray = array[nextArrayIndex].getKey();
+				long nextCollatzLengthInArray = array[nextArrayIndex].collatzLength;
 
-				if (lengthToInsert > nextKeyInArray)
+				if (lengthToInsert > nextCollatzLengthInArray)
 				{
 					// Shift the array's contents to create
 					// a space for the upcoming pair
 					// insertion
 					array[currentArrayIndex] = array[nextArrayIndex];
 				}
-				else if (lengthToInsert < nextKeyInArray)
+				else if (lengthToInsert < nextCollatzLengthInArray)
 				{
 					// Insert the parameter pair to place
 					// the pair in the correct sorted
@@ -209,7 +209,7 @@ public class Collatz
 					// insertion location search
 					break;
 				}
-				else if (lengthToInsert == nextKeyInArray)
+				else if (lengthToInsert == nextCollatzLengthInArray)
 				{
 					// Compare the pair values of the pair
 					// to insert and the next pair of the
