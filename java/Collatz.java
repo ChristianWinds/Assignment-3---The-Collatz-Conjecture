@@ -230,8 +230,8 @@ public class Collatz
 					// of the Collatz info object to insert
 					// and the next Collatz info object of the
 					// array to determine where the
-					// parameter pair should be placed in
-					// the array
+					// parameter Collatz info object should
+					// be placed in the array
 					Long integerToInsert = pairToInsert.integer;
 					Long nextIntegerInArray = array[nextArrayIndex].integer;
 
@@ -239,14 +239,16 @@ public class Collatz
 					{
 						// Shift the array's contents to
 						// create a space for the
-						// upcoming pair insertion
+						// upcoming Collatz info object
+						// insertion
 						array[currentArrayIndex] = array[nextArrayIndex];
 					}
 					else if (integerToInsert < nextIntegerInArray)
 					{
-						// Insert the parameter pair to
-						// place the pair in the correct
-						// sorted location in the array
+						// Insert the parameter Collatz
+						// info object to place the
+						// object in the correct sorted
+						// location in the array
 						array[currentArrayIndex] = pairToInsert;
 
 						// Leave the for loop to end the
@@ -256,9 +258,10 @@ public class Collatz
 					else if (integerToInsert == nextIntegerInArray)
 					{
 						// Stop attempting to place the
-						// parameter pair in the array
-						// to avoid storing a duplicate
-						// pair in the array
+						// parameter Collatz info object
+						// in the array to avoid storing
+						// a duplicate Collatz info
+						// object in the array
 						addNewPair = false;
 						break;
 					}
