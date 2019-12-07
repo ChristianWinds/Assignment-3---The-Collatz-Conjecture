@@ -134,11 +134,11 @@ public class Collatz
 		// Collatz sequence integer if that Collatz info object has a
 		// Collatz sequence length greater than or equal to the lowest
 		// Collatz sequence length stored in this method's received
-		// array. If the pair this method received has a Collatz
-		// sequence length matching the Collatz sequence length of the
-		// last item in this function's received array, this method's
-		// parameter Collatz info object is only inserted into this
-		// method's parameter array if the parameter Collatz info
+		// array. If the Collatz info object this method received has a
+		// Collatz sequence length matching the Collatz sequence length
+		// of the last item in this function's received array, this
+		// method's parameter Collatz info object is only inserted into
+		// this method's parameter array if the parameter Collatz info
 		// object's Collatz sequence integer value is less than the
 		// Collatz sequence integer value of the array's last item. The
 		// last item of this method's parameter array is removed from
