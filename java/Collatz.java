@@ -6,7 +6,8 @@ public class Collatz
 {
 	static void storeCollatzInfo(int collatzLengthsToStore,
 				     long maxIntToEvaluate,
-				     long maxCollatzLength)
+				     long maxCollatzLength,
+				     CollatzInfo [] collatzLengthArray)
 	{
 		// Precondition:
 		// Postcondition:
@@ -312,6 +313,7 @@ public class Collatz
 		// sequence lengths
 		storeCollatzInfo(collatzLengthsToStore,
 				 maxIntToEvaluate,
-				 maxCollatzLength);
+				 maxCollatzLength,
+				 collatzLengthArray);
 	}
 }
