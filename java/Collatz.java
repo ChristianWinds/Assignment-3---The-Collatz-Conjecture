@@ -75,11 +75,11 @@ public class Collatz
 					   long maxCollatzLength)
 	{
 		// Precondition: The integer to evaluate and maximum Collatz
-		// sequence length received by this function are valid long
+		// sequence length received by this method are valid long
 		// integers
-		// Postcondition: This function delivered the evaluated
-		// integer's Collatz sequence length to this function's caller
-		// if the sequence length is less than or equal to the maximum
+		// Postcondition: This method delivered the evaluated integer's
+		// Collatz sequence length to this method's caller if the
+		// sequence length is less than or equal to the maximum
 		// permitted Collatz sequence length, or a negative one is
 		// returned to this function's caller if the evaluated integer's
 		// sequence length exceeds the maximum permitted sequence length
