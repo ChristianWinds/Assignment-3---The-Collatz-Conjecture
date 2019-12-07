@@ -226,8 +226,9 @@ public class Collatz
 				}
 				else if (lengthToInsert == nextCollatzLengthInArray)
 				{
-					// Compare the pair values of the pair
-					// to insert and the next pair of the
+					// Compare the Collatz sequence integers
+					// of the Collatz info object to insert
+					// and the next Collatz info object of the
 					// array to determine where the
 					// parameter pair should be placed in
 					// the array
