@@ -253,7 +253,7 @@ public class Collatz
 			// parsing, insert the parameter pair at the beginning
 			// of the array to place the pair in the correct sorted
 			// position in the array
-			if ((arrayIndex == firstindexOfArray) &&
+			if ((currentArrayIndex == firstIndexOfArray) &&
 			    (addNewPair))
 			{
 				array[firstArrayIndex] = pairToInsert;
