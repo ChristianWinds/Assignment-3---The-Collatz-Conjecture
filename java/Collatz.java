@@ -157,13 +157,14 @@ public class Collatz
 			// Compare the pair values of the parameter pair and the
 			// final array pair to determine whether to insert the
 			// parameter pair into the array
-			long lastArrayPairValue = pairToInsert.integer;
+			long lastArrayIntegerValue = array[lastArrayIndex].integer;
+			long integerToInsert = pairToInsert.integer;
 
-			if (pairValueToInsert < lastArrayPairValue)
+			if (integerToInsert < lastArrayIntegerValue)
 			{
 				addNewPair = true;
 			}
-			else if (pairValueToInsert >= lastArrayPairValue)
+			else if (integerToInsert >= lastArrayIntegerValue)
 			{
 				addNewPair = false;
 			}
@@ -215,17 +216,17 @@ public class Collatz
 					// array to determine where the
 					// parameter pair should be placed in
 					// the array
-					Long pairValueToInsert = pairToInsert.getValue();
-					Long nextPairValueInArray = array[nextArrayIndex].getValue();
+					Long integerToInsert = pairToInsert.integer;
+					Long nextIntegerInArray = array[nextArrayIndex].integer;
 
-					if (pairValueToInsert > nextPairValueInArray)
+					if (integerToInsert > nextIntegerInArray)
 					{
 						// Shift the array's contents to
 						// create a space for the
 						// upcoming pair insertion
 						array[currentArrayIndex] = array[nextArrayIndex];
 					}
-					else if (pairValueToInsert < nextPairValueInArray)
+					else if (integerToInsert < nextIntegerInArray)
 					{
 						// Insert the parameter pair to
 						// place the pair in the correct
@@ -236,7 +237,7 @@ public class Collatz
 						// insertion location search
 						break;
 					}
-					else if (pairValueToInsert == nextPairValueInArray)
+					else if (integerToInsert == nextIntegerInArray)
 					{
 						// Stop attempting to place the
 						// parameter pair in the array
